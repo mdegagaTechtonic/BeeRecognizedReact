@@ -21,7 +21,7 @@ import {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {isLoggedIn: false};
+    this.state = {isLoggedIn: true};
   }
   render() {
 
@@ -30,24 +30,25 @@ class App extends Component {
       //if user logged in display nav bar
       return (
         <Router>
-         {/* <div className="App">
-           <div className="container">
-             <ul>
-               <li><Link to="/UserProfilePage">User Profile Page</Link></li>
-               <li><Link to="/RR">RR</Link></li>
-               <li><Link to="/RS">RS</Link></li>
-               <li><Link to="/logout">Logout</Link></li>
-             </ul>
-             <hr/> */}
-           {/* <Switch> */}
-             {/* <Route exact path="/UserProfilePage" component={UserProfilePage} /> */}
-             <Route path="/RR" component={ReceivedRecognition} />
-             {/* <Route path="/RS" component={RS} />
-             <Route path="/logout" component={Logout} /> */}
-           {/* </Switch> */}
-           {/* </div> */}
-         {/* </div> */}
-       </Router>);
+          <div className="App">
+            <div className="container">
+              <ul>
+                <li><Link to="/UserProfilePage">User Profile Page</Link></li>
+                <li><Link to="/RR">RR</Link></li>
+                <li><Link to="/RS">RS</Link></li>
+                <li><Link to="/logout">Logout</Link></li>
+              </ul>
+              <hr/>
+              <Switch>
+               {/* <Route exact path="/UserProfilePage" component={UserProfilePage} /> */}
+                <Route path="/RR" component={ReceivedRecognition} />
+               <Route path="/userProfilePage" component={ReceivedRecognition} />
+               {/* <Route path="/RS" component={RS} />
+               <Route path="/logout" component={Logout} /> */}
+              </Switch>
+            </div>
+          </div>
+        </Router>);
 
       // button = <LogoutButton onClick={this.handleLogoutClick} />;
     } else {
