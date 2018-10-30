@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 
-//
 import UserProfilePage from './UserProfilePage';
 import ReceivedRecognition from './RR';
-import recognitionSent from './RS';
+import RecognitionSent from './RS';
 import Logout from './logout';
-import login from './login'
+import Login from './login';
 
-// import route Components here
 import {
   BrowserRouter as Router,
   Route,
@@ -17,48 +15,43 @@ import {
   Redirect
 } from 'react-router-dom';
 
-
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {isLoggedIn: false};
+    this.state = { isLoggedIn: true };
   }
-  render() {
 
-    // let button;
+  render() {
     if (this.state.isLoggedIn) {
-      //if user logged in display nav bar
       return (
         <Router>
-         {/* <div className="App">
+         <div className="App">
            <div className="container">
              <ul>
                <li><Link to="/UserProfilePage">User Profile Page</Link></li>
-               <li><Link to="/RR">RR</Link></li>
-               <li><Link to="/RS">RS</Link></li>
+               <li><Link to="/RR">Recognition Received</Link></li>
+               <li><Link to="/RS">Recognition Sent</Link></li>
                <li><Link to="/logout">Logout</Link></li>
              </ul>
-             <hr/> */}
-           {/* <Switch> */}
-             {/* <Route exact path="/UserProfilePage" component={UserProfilePage} /> */}
+             <hr/>
+           <Switch>
+             <Route exact path="/UserProfilePage" component={UserProfilePage} />
              <Route path="/RR" component={ReceivedRecognition} />
-             {/* <Route path="/RS" component={RS} />
-             <Route path="/logout" component={Logout} /> */}
-           {/* </Switch> */}
-           {/* </div> */}
-         {/* </div> */}
-       </Router>);
+             <Route path="/RS" component={RecognitionSent} />
+             <Route path="/logout" component={Logout} />
+           </Switch>
+           </div>
 
-      // button = <LogoutButton onClick={this.handleLogoutClick} />;
-    } else {
-      // return (<Route path='/login' component={login}/>);
-      return (<Router><Route path='/login' component={login}/></Router>);
-      {/* // return (<div><h1>Hello World!</h1>
-      // <h1>Hello World!</h1></div>); //current log in page
-      //else stay on log in page --- show message for why not logged in
-      // button = <LoginButton onClick={this.handleLoginClick} />; */}
-    }
+         </div>
+        </Router>
+      );
+    };
 
+    return (
+      <Router>
+        <Route exact path="/" component={Login} />
+      </Router>
+    );
   }
 }
 

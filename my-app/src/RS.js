@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 //logout Component
-class RS extends React.Component {
+class RecognitionSent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,8 +10,10 @@ class RS extends React.Component {
   }
   //renders everything after the navbar
   render () {
-    return;
+    return (
+      <h1>testing RS</h1>
+    );
   }
 }
 
-export default RS;
+export default RecognitionSent;
