@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import ReceivedRecognition from './RR';
-import RecognitionSent from './RS';
+import Recognitions from './Recognitions';
 import Logout from './logout';
 import Login from './login';
 

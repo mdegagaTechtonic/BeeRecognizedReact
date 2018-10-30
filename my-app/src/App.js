@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import UserProfilePage from './UserProfilePage';
-import ReceivedRecognition from './RR';
-import RecognitionSent from './RS';
+import Recognitions from './Recognitions';
 import Logout from './logout';
 import Login from './login';
 
@@ -36,8 +35,8 @@ class App extends Component {
              <hr/>
            <Switch>
              <Route exact path="/UserProfilePage" component={UserProfilePage} />
-             <Route path="/RR" component={ReceivedRecognition} />
-             <Route path="/RS" component={RecognitionSent} />
+             <Route path="/RR" component={Recognitions} />
+             <Route path="/RS" component={Recognitions} />
              <Route path="/logout" component={Logout} />
            </Switch>
            </div>
