@@ -1,0 +1,61 @@
+/* used css/styles.css instead ; this is just for reference*/
+  nav{
+    /*Values can change later*/
+    padding: 20px;
+  }
+
+  a {
+    color: black;
+  }
+
+  body {
+    background-color: #FCF75E;/*convert to hex*/ /*move color to the border color or inside*/
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+  }
+
+  .flex-container {
+    flex: 1 0 auto;
+  }
+
+  .flex-grow {
+    flex: 1;
+  }
+
+
+  .userImage, .userName, .time {
+    display: inline;
+  }
+
+  .userImage {
+    width: 20px;
+    height: 20px;
+  }
+
+  .userName {
+    font-weight: bold;
+  }
+
+  .time {
+    padding-left: 1%;
+  }
+
+  .archive-message {
+    padding-left: 5%;
+  }
+
+  .info {
+    padding-left: 5%;
+  }
+
+  .archive {
+    padding: 20px;
+    background-color: white;
+  }
+
+  .in-white-box {
+    background-color: white;
+    padding: 20px;
+  }

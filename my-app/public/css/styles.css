@@ -1,0 +1,115 @@
+body { background-color: #FCF75E; margin-top: 60px; }
+textarea { height: auto !important; }
+
+/* Multiples pages */
+.bg-white {
+  background-color: #FFFFFF !important;
+}
+
+/*Start style rules for Recognitions Sent Page and Recognitions Received Page */
+a {
+  color: black;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  flex: 1 0 auto;
+}
+
+.flex-grow {
+  flex: 1;
+}
+
+.userImage, .userName, .time {
+  display: inline;
+}
+
+.userName {
+  font-weight: bold;
+}
+
+.time {
+  padding-left: 1%;
+}
+
+.archive-message {
+  padding-left: 5%;
+}
+
+.info {
+  padding-left: 5%;
+}
+
+.archive {
+  padding: 20px;
+  background-color: white;
+}
+
+.in-white-box {
+  background-color: white;
+  padding: 20px;
+}
+
+div.item {
+display: inline-block;
+}
+
+
+.total {
+  margin-right: .5em;
+}
+
+.img-fluid {
+  width: 30px;
+}
+
+h1.heading {
+  display: inline;
+}
+
+.flex-row {
+  padding-bottom: 1em;
+}
+
+/* End of style rules for Recognitions Sent Page and Recognitions Received Page*/
+/* From login page */
+h1 {
+  margin: 0 auto;
+  font-size:3vw;
+  font-size:  3vmax;
+}
+
+#footer {
+  margin: 240px auto 0px;
+}
+.content{
+  margin-top: 0px;
+}
+
+#link {
+  font-size: 13px;
+}
+
+#button {
+  width: 175px;
+  height: 40px;
+  background-image: url(http://platform.slack-edge.com/img/sign_in_with_slack.png);
+  border-radius: 10px;
+}
+
+.morecontent span {
+	display: none;
+}
+.less {
+	color: #0254EB;
+}
+a:visited {
+	color: #0254EB;
+}
+a.morelink {
+	text-decoration:none;
+	outline: none;
+  color: #0254EB;
+}
