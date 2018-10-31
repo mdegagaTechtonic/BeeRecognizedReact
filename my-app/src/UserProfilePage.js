@@ -26,7 +26,12 @@ class UserProfilePage extends React.Component {
 
   render () {
     let label = '';
+    let db = JSON.parse(localStorage.getItem('db'));
     var recognitionsArray = [];
+    var recognitionReceivedArray = Recognitions.getAllRecognitionReceived(db);
+    console.log(recognitionReceivedArray);
+    var recognitionSentArray = Recognitions.getAllRecognitionSent(db);
+    console.log(recognitionSentArray);
 
     var recognitionReceivedArray = [{ sender: 'Erik', avatarSender: 'avatars/erikhoy.png', receiver: 'Merry', receiverAvatar: 'avatars/MerryD.png', beesToGive: 4, date: '10/25/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }, { sender: 'Egor', avatarSender: 'avatars/Egor.png', receiver: 'Jason', receiverAvatar: 'avatars/JasonDang.png', beesToGive: 1, date: '10/23/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }];
     // recognitionsArray = recognitionReceivedArray;
