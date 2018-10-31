@@ -11,7 +11,8 @@
     "react-input-datalist": "^5.0.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.0.5"
+    "react-scripts": "2.0.5",
+    "store": "^2.0.12"
   },
   "scripts": {
     "start": "react-scripts start",
