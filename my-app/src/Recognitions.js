@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Filter from './filter.js';
-
+import DisplayList from './DisplayList.js';
 import DatePicker from 'react-date-picker';
 import GetUser from './getUser.js';
 import Recognition from './mockDB';
@@ -27,12 +27,19 @@ class Recognitions extends Component {
 
     // static label for username input datalist
     let label = '';
-    if(this.props.page=='RR') label = 'Received from';
-    else label = 'Sent to';
-
-    var datalist=['test','bill','egor'];  // test data will be replace with data from mockdb
+    var recognitionsArray = [];
+    var datalist=['test','bill','egor'];
+    var recognitionSentArray = [{ name: 'Ashley', avatar: 'ashley.elder.png', date: '10/31/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }, { name: 'Brett', avatar: 'BrettGoers.png', date: '10/29/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }];
+    var recognitionReceivedArray = [{ name: 'Erik', avatar: 'erikhoy.png', date: '10/25/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }, { name: 'Egor', avatar: 'Egor.png', date: '10/23/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }];
     require('./calendar.gif');
     let calendarIco = './calendar.gif';
+    if (this.props.page=='RR') {
+      label = 'Received from';
+      recognitionsArray = recognitionReceivedArray;
+    } else {
+      label = 'Sent to';
+      recognitionsArray = recognitionSentArray;
+    }
       return (
 
         // rendering of filter component
@@ -50,6 +57,7 @@ class Recognitions extends Component {
           <div className='p-3'>
             <button className='btn-info' onClick={this.onFilterButton}>Filter</button>
           </div>
+          <DisplayList recognitions={recognitionsArray} />
         </div>
 
         //rendering of filtered recognitions by calling display component and passing down filteredArr
