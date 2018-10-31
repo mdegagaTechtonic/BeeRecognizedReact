@@ -10,6 +10,8 @@ class Recognitions extends Component {
     super(props);
     this.state = {page:'', filteredArr:[], beginDate: new Date(), endDate: new Date(), userSelected: ''};
     //state filteredArr will initially be set to mockdb
+    let allRecognitions = new Filter();
+    console.log(allRecognitions.getAllRecognitionReceived());
   }
 
   onChangeBeginDate = beginDate => this.setState({beginDate: beginDate});
@@ -57,6 +59,7 @@ class Recognitions extends Component {
           <div className='p-3'>
             <button className='btn-info' onClick={this.onFilterButton}>Filter</button>
           </div>
+          
           <DisplayList recognitions={recognitionsArray} />
         </div>
 
