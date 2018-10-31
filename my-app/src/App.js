@@ -5,6 +5,7 @@ import UserProfilePage from './UserProfilePage';
 import Recognitions from './Recognitions';
 import Logout from './logout';
 import Login from './login';
+import Navigation from './Navigation';
 
 import {
   BrowserRouter as Router,
@@ -24,24 +25,16 @@ class App extends Component {
     if (this.state.isLoggedIn) {
       return (
         <Router>
-         <div className="App">
-           <div className="container">
-             <ul>
-               <li><Link to="/UserProfilePage">User Profile Page</Link></li>
-               <li><Link to="/RR">Recognition Received</Link></li>
-               <li><Link to="/RS">Recognition Sent</Link></li>
-               <li><Link to="/logout">Logout</Link></li>
-             </ul>
-             <hr/>
+         <div>
+          <Navigation />
            <Switch>
              <Route exact path="/UserProfilePage" component={UserProfilePage} />
              <Route path="/RR" component={Recognitions} />
              <Route path="/RS" component={Recognitions} />
              <Route path="/logout" component={Logout} />
            </Switch>
-           </div>
-
          </div>
+
         </Router>
       );
     };
