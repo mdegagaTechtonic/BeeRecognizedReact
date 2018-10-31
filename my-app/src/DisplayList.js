@@ -6,8 +6,8 @@ export const DisplayList = (props) => {
     props.recognitions.map((recognition) => {
       return (
         <ListItem
-          name={ recognition.sender }
-          avatar={ recognition.avatarSender }
+          sender={ recognition.sender }
+          avatarSender={ recognition.avatarSender }
           date={ recognition.date }
           message={ recognition.message }
         />
