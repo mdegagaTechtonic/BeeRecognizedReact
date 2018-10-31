@@ -35,7 +35,6 @@ class Recognitions extends Component {
   static getAllRecognitionReceived(db) {
     var username = 'MerryD';
     var receivedRecognition = [];
-    console.log(db);
     for (var i = 0; i < db.length; i++) {
       if (db[i].receiver.toLowerCase() === username.toLowerCase()) {
         receivedRecognition.push(db[i]);

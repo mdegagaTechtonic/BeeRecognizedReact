@@ -30,9 +30,7 @@ class UserProfilePage extends React.Component {
     let db = JSON.parse(localStorage.getItem('db'));
     var recognitionsArray = [];
     var recognitionReceivedArray = Recognitions.getAllRecognitionReceived(db);
-    console.log(recognitionReceivedArray);
     var recognitionSentArray = Recognitions.getAllRecognitionSent(db);
-    console.log(recognitionSentArray);
 
     if (this.props.page=='RR' || this.props.page=='SB') {
       label = 'Received from';
