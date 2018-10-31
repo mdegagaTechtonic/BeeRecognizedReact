@@ -28,15 +28,9 @@ class UserProfilePage extends React.Component {
   render () {
     let label = '';
     var recognitionsArray = [];
-    var recognitionSentArray = [{ name: 'Ashley', avatar: 'ashley.elder.png', date: '10/31/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }, { name: 'Brett', avatar: 'BrettGoers.png', date: '10/29/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }];
-    var recognitionReceivedArray = [{ name: 'Erik', avatar: 'erikhoy.png', date: '10/25/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }, { name: 'Egor', avatar: 'Egor.png', date: '10/23/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }];
-    if (this.props.page=='RR' || this.props.page=='SB') {
-      label = 'Received from';
-      recognitionsArray = recognitionReceivedArray;
-    } else {
-      label = 'Sent to';
-      recognitionsArray = recognitionSentArray;
-    }
+
+    var recognitionReceivedArray = [{ sender: 'Erik', avatarSender: 'avatars/erikhoy.png', receiver: 'Merry', receiverAvatar: 'avatars/MerryD.png', beesToGive: 4, date: '10/25/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }, { sender: 'Egor', avatarSender: 'avatars/Egor.png', receiver: 'Jason', receiverAvatar: 'avatars/JasonDang.png', beesToGive: 1, date: '10/23/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }];
+    recognitionsArray = recognitionReceivedArray;
 
     return (
       <div className="container-fluid">
