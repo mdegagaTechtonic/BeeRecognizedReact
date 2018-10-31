@@ -35,17 +35,18 @@ class Recognitions extends Component {
     var recognitionReceivedArray = [{ name: 'Erik', avatar: 'erikhoy.png', date: '10/25/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }, { name: 'Egor', avatar: 'Egor.png', date: '10/23/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }];
     require('./calendar.gif');
     let calendarIco = './calendar.gif';
-    if (this.props.page=='RR') {
+    if (this.props.page=='RR' || this.props.page=='SB') {
       label = 'Received from';
       recognitionsArray = recognitionReceivedArray;
     } else {
       label = 'Sent to';
       recognitionsArray = recognitionSentArray;
     }
+
       return (
 
         // rendering of filter component
-        <div className='d-flex flex-row flex-wrap'>
+        <div className='d-flex flex-row flex-wrap mx-5 rounded bg-white border border-dk'>
           <div className='p-2'>
             <label className='mr-2'>{label}</label>
             <GetUser listusers={datalist} onChange={this.onChangeGetUser}/>
@@ -59,7 +60,7 @@ class Recognitions extends Component {
           <div className='p-3'>
             <button className='btn-info' onClick={this.onFilterButton}>Filter</button>
           </div>
-          
+
           <DisplayList recognitions={recognitionsArray} />
         </div>
 
