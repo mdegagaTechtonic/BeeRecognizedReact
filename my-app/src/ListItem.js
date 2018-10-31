@@ -1,32 +1,22 @@
-import React, { Component } from 'react';
-import ShowMore from 'react-show-more';
+import React from 'react';
 
-//logout Component
 export const ListItem = (props) => {
-// export class ListItem extends React.Component {
+  return (
+    <div className='list-group-item list-group-item-action flex-column align-items-start recognition'>
+      <div className='d-flex w-100 justify-content-between'>
+        <div>
+          <img src={`images/avatars/${props.avatar}`} alt='slack user icon' className='userImage mr-2' width='100' />
+          <br />
+          <h5 className='mt-2 mb-2'>{props.name}</h5>
+        </div>
+        <div className='float-right'>
+          <small className='text-muted mr-2 float-right'>{props.date}</small>
+          <br />
+          <p className='mt-1 mb-1 text-left'>{props.message}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-  // render () {
-    return (
-      <h1>Hello my name is {props.name}</h1>
-      // <div className='list-group-item list-group-item-action flex-column align-items-start recognition'>
-      //   <div className='d-flex w-100 justify-content-between'>
-      //     <div>
-      //       <img src='images/avatars/ashley.elder.png' alt='slack user icon' className='userImage' width='100' />
-      //       <br />
-      //       <h5 className='mt-2 mb-2'>check</h5>
-      //     </div>
-      //     <div>
-      //       <div className='row'>
-      //         <small className='text-muted mr-2'>10/26/18</small>
-      //       </div>
-      //     </div>
-      //     <div>
-      //       <p className='mt-1 mb-1'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas. Morbi sodales mollis hendrerit. Aliquam efficitur posuere ipsum vitae efficitur. Phasellus congue purus consectetur nunc tempor rutrum.</p>
-      //     </div>
-      //   </div>
-      // </div>
-    );
-  // }
-}
-
-// export default ListItem;
+export default ListItem;
