@@ -18,19 +18,15 @@ class Navigation extends React.Component {
             <ul className="navbar-nav mr-auto">
               <li className="nav-item">
                 <Link to="/UserProfilePage" className="nav-link">Home</Link>
-                {/* <a className="nav-link" href="userProfile.html">Home<span className="sr-only">(current)</span></a> */}
               </li>
               <li className="nav-item">
                 <Link to="/RS" className="nav-link">Recognition Sent</Link>
-                {/* <a className="nav-link" href="recognitionSent.html">Recognition Sent</a> */}
               </li>
               <li className="nav-item">
                 <Link to="/RR" className="nav-link">Recognition Received</Link>
-                {/* <a className="nav-link" href="recognitionReceived.html">Recognition Received</a> */}
               </li>
               <li className="nav-item">
                 <Link to="/logout" className="nav-link" onClick={this.props.action}>Logout</Link>
-                {/* <a className="nav-link" href="logout.html">Logout</a> */}
               </li>
             </ul>
           </div>

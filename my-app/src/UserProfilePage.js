@@ -7,7 +7,6 @@ import Login from './login';
 import Recognition from './mockDB';
 import DisplayList from './DisplayList';
 
-// import route Components here
 import {
   BrowserRouter as Router,
   Route,
@@ -30,7 +29,8 @@ class UserProfilePage extends React.Component {
     var recognitionsArray = [];
 
     var recognitionReceivedArray = [{ sender: 'Erik', avatarSender: 'avatars/erikhoy.png', receiver: 'Merry', receiverAvatar: 'avatars/MerryD.png', beesToGive: 4, date: '10/25/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }, { sender: 'Egor', avatarSender: 'avatars/Egor.png', receiver: 'Jason', receiverAvatar: 'avatars/JasonDang.png', beesToGive: 1, date: '10/23/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }];
-    recognitionsArray = recognitionReceivedArray;
+    // recognitionsArray = recognitionReceivedArray;
+    recognitionsArray = JSON.parse(localStorage.getItem('db'));
 
     return (
       <div className="container-fluid">

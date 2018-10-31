@@ -37,7 +37,8 @@ class Recognitions extends Component {
 
     // static label for username input datalist
     let label = '';
-    var recognitionsArray = [];
+    // var recognitionsArray = [];
+    var recognitionsArray = JSON.parse(localStorage.getItem('db'));
     var datalist = ['test', 'bill', 'egor'];
 
     var recognitionSentArray = [
@@ -85,10 +86,13 @@ class Recognitions extends Component {
     let calendarIco = './calendar.gif';
     if (this.props.page == 'RR') {
       label = 'Received from';
-      recognitionsArray = recognitionReceivedArray;
+      // recognitionsArray = recognitionReceivedArray;
+      recognitionsArray = recognitionsArray.slice(0,(recognitionsArray.length/2));
+
     } else {
       label = 'Sent to';
-      recognitionsArray = recognitionSentArray;
+      // recognitionsArray = recognitionSentArray;
+      recognitionsArray = recognitionsArray.slice((recognitionsArray.length/2), recognitionsArray.length-1);
     }
 
     return (
