@@ -9,11 +9,9 @@ class Recognition {
     this.beesToGive = beesToGive;
     this.date = date;
     this.message = message;
-    var recognition = this.sortDBByDate();
-    localStorage.setItem('db', JSON.stringify(recognition));
-  }
 
-  sortDBByDate (recognition) {
+  }
+  static sortDBByDate(recognition){
     var recognition = [r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25];
     recognition.sort(function (a, b) {
       return new Date(b.date) - new Date(a.date);
@@ -21,10 +19,11 @@ class Recognition {
 
     return recognition;
   };
+
 };
 
-//recognition.sort((a, b) => new Date(b.date) - new Date(a.date);
 
+//recognition.sort((a, b) => new Date(b.date) - new Date(a.date);
 const r1 = new Recognition("avatars/kyle.brothis.png", "avatars/ashley.elder.png", "kyle.brothis", "ashley.elder", 2, "10/2/2018", "Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit. Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.")
 
 const r2 = new Recognition("avatars/ashley.elder.png", "avatars/MerryD.png", "ashley.elder", "MerryD", 2, "06/11/2018", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
@@ -74,5 +73,8 @@ const r23 = new Recognition("avatars/MerryD.png", "avatars/erikhoy.png", "MerryD
 const r24 = new Recognition("avatars/MerryD.png", "avatars/ShambreSW.png", "MerryD", "ShambreSW", 2, "06/28/2018", "Yeah........I'm gonna need you to come in on Saturday.")
 
 const r25 = new Recognition("avatars/MerryD.png", "avatars/Egor.png", "MerryD", "Egor", 4, "10/12/2018", "I believe you have my stapler.")
+
+
+localStorage.setItem('db', JSON.stringify(Recognition.sortDBByDate()));
 
 export default Recognition;
