@@ -18,3 +18,4 @@ RR: recognition received page
     sudo npm i react-date-picker
     npm install --save react-router-dom
     npm install react
+    npm install store
