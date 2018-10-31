@@ -5,9 +5,9 @@ export const ListItem = (props) => {
     <div className='list-group-item list-group-item-action flex-column align-items-start recognition'>
       <div className='d-flex w-100 justify-content-between'>
         <div>
-          <img src={`images/avatars/${props.avatar}`} alt='slack user icon' className='userImage mr-2' width='100' />
+          <img src={`images/${props.avatarSender}`} alt='slack user icon' className='userImage mr-2' width='100' />
           <br />
-          <h5 className='mt-2 mb-2'>{props.name}</h5>
+          <h5 className='mt-2 mb-2'>{props.sender}</h5>
         </div>
         <div className='float-left'>
           <small className='text-muted mr-2 float-right'>{props.date}</small>

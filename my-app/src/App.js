@@ -38,8 +38,9 @@ class App extends Component {
         <Router>
          <div>
           <Navigation action={this.handleLogout} />
+          <Redirect to= '/UserProfilePage' />
            <Switch>
-             <Route exact path="/UserProfilePage" component={props => <UserProfilePage page={'RR'} />} />
+             <Route exact path="/UserProfilePage" component={UserProfilePage} />
              <Route path="/RR" component={props => <Recognitions page={'RR'} />} />
              <Route path="/RS" component={props => <Recognitions page={'RS'} />} />
            </Switch>
