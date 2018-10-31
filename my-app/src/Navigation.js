@@ -7,8 +7,8 @@ import {
   Redirect
 } from 'react-router-dom';
 
-const Navigation = () => {
-  return (<header>
+class Navigation extends React.Component {
+  render () {return (<header>
       <nav className="navbar active navbar-expand-lg navbar-light bg-white fixed-top border border-dark border-top-0 border-left-0 border-right-0">
           <span className="navbar-brand"><img src="images/bee.png" width="30px"/> BeeRecognized</span>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,12 +29,12 @@ const Navigation = () => {
                 {/* <a className="nav-link" href="recognitionReceived.html">Recognition Received</a> */}
               </li>
               <li className="nav-item">
-                <Link to="/logout" className="nav-link">Logout</Link>
+                <Link to="/logout" className="nav-link" onClick={this.props.action}>Logout</Link>
                 {/* <a className="nav-link" href="logout.html">Logout</a> */}
               </li>
             </ul>
           </div>
       </nav></header>
   );
-}
+}}
 export default Navigation;

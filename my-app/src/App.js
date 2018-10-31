@@ -18,7 +18,18 @@ import {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { isLoggedIn: true };
+    this.state = { isLoggedIn: false };
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+  handleLogin (event) {
+    event.preventDefault();
+    this.setState({ isLoggedIn: true });
+  }
+
+  handleLogout () {
+    this.setState({ isLoggedIn: false });
   }
 
   render() {
@@ -26,12 +37,11 @@ class App extends Component {
       return (
         <Router>
          <div>
-          <Navigation />
+          <Navigation action={this.handleLogout} />
            <Switch>
              <Route exact path="/UserProfilePage" component={props => <UserProfilePage page={'RR'} />} />
              <Route path="/RR" component={props => <Recognitions page={'RR'} />} />
              <Route path="/RS" component={props => <Recognitions page={'RS'} />} />
-             <Route path="/logout" component={Logout} />
            </Switch>
          </div>
 
@@ -41,7 +51,10 @@ class App extends Component {
 
     return (
       <Router>
-        <Route exact path="/" component={Login} />
+        <div>
+        <Route exact path="/login" render={ (props) => <Login action={this.handleLogin} /> }/>
+        <Route exact path="/logout" render={ (props) => <Logout action={this.handleLogin} /> }/>
+      </div>
       </Router>
     );
   }
