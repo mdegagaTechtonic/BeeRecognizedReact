@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Recognitions from './Recognitions';
 import Logout from './logout';
 import Login from './login';
+import Recognition from './mockDB';
 
 // import route Components here
 import {

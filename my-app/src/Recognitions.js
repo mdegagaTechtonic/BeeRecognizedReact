@@ -3,6 +3,7 @@ import Filter from './filter.js';
 
 import DatePicker from 'react-date-picker';
 import GetUser from './getUser.js';
+import Recognition from './mockDB';
 
 class Recognitions extends Component {
   constructor(props) {
