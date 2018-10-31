@@ -19,3 +19,4 @@ RR: recognition received page
     npm install --save react-router-dom
     npm install react
     npm install store
+    npm i store
