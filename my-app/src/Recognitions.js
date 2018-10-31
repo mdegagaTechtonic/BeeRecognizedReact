@@ -11,7 +11,7 @@ class Recognitions extends Component {
     this.state = {page:'', filteredArr:[], beginDate: new Date(), endDate: new Date(), userSelected: ''};
     //state filteredArr will initially be set to mockdb
     let allRecognitions = new Filter();
-    console.log(allRecognitions.getAllRecognitionReceived());
+    // console.log(allRecognitions.getAllRecognitionReceived());
   }
 
   onChangeBeginDate = beginDate => this.setState({beginDate: beginDate});
@@ -31,9 +31,12 @@ class Recognitions extends Component {
     let label = '';
     var recognitionsArray = [];
     var datalist=['test','bill','egor'];
-    var recognitionSentArray = [{ name: 'Ashley', avatar: 'ashley.elder.png', date: '10/31/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }, { name: 'Brett', avatar: 'BrettGoers.png', date: '10/29/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }];
-    var recognitionReceivedArray = [{ name: 'Erik', avatar: 'erikhoy.png', date: '10/25/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }, { name: 'Egor', avatar: 'Egor.png', date: '10/23/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }];
+
+    var recognitionSentArray = [{ sender: 'Ashley', avatarSender: 'avatars/ashley.elder.png', receiver: 'Kyle', avatarReceiver: 'avatars/kyle.brothis.png', beesToGive: 2, date: '10/31/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }, { sender: 'Brett', avatarSender: 'avatars/BrettGoers.png', receiver: 'Ashley', avatarReceiver: 'avatars/ashley.elder.png', beesToGive: 3, date: '10/29/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }];
+    var recognitionReceivedArray = [{ sender: 'Erik', avatarSender: 'erikhoy.png', receiver: 'Merry', receiverAvatar: 'avatars/MerryD.png', beesToGive: 4, date: '10/25/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }, { sender: 'Egor', avatarSender: 'Egor.png', receiver: 'Jason', receiverAvatar: 'avatars/JasonDang.png', beesToGive: 1, date: '10/23/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }];
     require('./calendar.gif');
+    // var recognitionsArray = JSON.parse(localStorage.getItem('db'));
+    // console.log(recognitionsArray);
     let calendarIco = './calendar.gif';
     if (this.props.page=='RR' || this.props.page=='SB') {
       label = 'Received from';
