@@ -18,14 +18,14 @@ import {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { isLoggedIn: false };
+    this.state = { isLoggedIn: false, currUser: '' };
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
   }
 
-  handleLogin (event) {
+  handleLogin (event, user) {
     event.preventDefault();
-    this.setState({ isLoggedIn: true });
+    this.setState({ isLoggedIn: true, currUser: user });
   }
 
   handleLogout () {
