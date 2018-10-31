@@ -1,11 +1,4 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch,
-  Redirect
-} from 'react-router-dom';
 
 const Sidebar = () => {
   return (
