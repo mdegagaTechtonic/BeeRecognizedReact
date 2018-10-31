@@ -42,11 +42,11 @@ class Recognitions extends Component {
       label = 'Sent to';
       recognitionsArray = recognitionSentArray;
     }
-    
+
       return (
 
         // rendering of filter component
-        <div className='d-flex flex-row flex-wrap'>
+        <div className='d-flex flex-row flex-wrap mx-5 rounded bg-white border border-dk'>
           <div className='p-2'>
             <label className='mr-2'>{label}</label>
             <GetUser listusers={datalist} onChange={this.onChangeGetUser}/>
