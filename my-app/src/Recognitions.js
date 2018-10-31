@@ -57,6 +57,7 @@ class Recognitions extends Component {
           <div className='p-3'>
             <button className='btn-info' onClick={this.onFilterButton}>Filter</button>
           </div>
+          
           <DisplayList recognitions={recognitionsArray} />
         </div>
 

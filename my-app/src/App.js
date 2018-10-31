@@ -29,8 +29,8 @@ class App extends Component {
           <Navigation />
            <Switch>
              <Route exact path="/UserProfilePage" component={UserProfilePage} />
-             <Route path="/RR" component={Recognitions} />
-             <Route path="/RS" component={Recognitions} />
+             <Route path="/RR" component={props => <Recognitions page={'RR'} />} />
+             <Route path="/RS" component={props => <Recognitions page={'RS'} />} />
              <Route path="/logout" component={Logout} />
            </Switch>
          </div>
