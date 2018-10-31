@@ -27,9 +27,13 @@ class UserProfilePage extends React.Component {
 
   render () {
     let label = '';
+    let db = JSON.parse(localStorage.getItem('db'));
     var recognitionsArray = [];
-    var recognitionSentArray = [{ name: 'Ashley', avatar: 'ashley.elder.png', date: '10/31/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }, { name: 'Brett', avatar: 'BrettGoers.png', date: '10/29/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }];
-    var recognitionReceivedArray = [{ name: 'Erik', avatar: 'erikhoy.png', date: '10/25/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }, { name: 'Egor', avatar: 'Egor.png', date: '10/23/18', message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id arcu risus. Praesent consequat mollis dolor, eu tristique neque scelerisque egestas.' }];
+    var recognitionReceivedArray = Recognitions.getAllRecognitionReceived(db);
+    console.log(recognitionReceivedArray);
+    var recognitionSentArray = Recognitions.getAllRecognitionSent(db);
+    console.log(recognitionSentArray);
+
     if (this.props.page=='RR' || this.props.page=='SB') {
       label = 'Received from';
       recognitionsArray = recognitionReceivedArray;

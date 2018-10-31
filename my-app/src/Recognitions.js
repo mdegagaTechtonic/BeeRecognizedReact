@@ -11,7 +11,7 @@ class Recognitions extends Component {
     this.state = {page:'', filteredArr:[], beginDate: new Date(), endDate: new Date(), userSelected: ''};
     //state filteredArr will initially be set to mockdb
     let allRecognitions = new Filter();
-    console.log(allRecognitions.getAllRecognitionReceived());
+    let db = JSON.parse(localStorage.getItem('db'));
   }
 
   onChangeBeginDate = beginDate => this.setState({beginDate: beginDate});
@@ -24,6 +24,31 @@ class Recognitions extends Component {
     alert(this.state.beginDate);
     alert(this.state.endDate);
   }
+
+  static getAllRecognitionReceived(db) {
+    var username = 'MerryD';
+    var receivedRecognition = [];
+    console.log(db);
+    for (var i = 0; i < db.length; i++) {
+      if (db[i].receiver.toLowerCase() === username.toLowerCase()) {
+        receivedRecognition.push(db[i]);
+      }
+    }
+    return receivedRecognition;
+  }
+
+  static getAllRecognitionSent(db){
+    var username = 'MerryD';
+    var sentRecognition = [];
+    for (var i = 0; i < db.length; i++) {
+      // console.log(i);
+      // console.log(db[i].sender);
+      if (db[i].sender.toLowerCase() === username.toLowerCase()) {
+      sentRecognition.push(db[i]);
+      }
+    }
+    return sentRecognition;
+  };
 
   render() {
 
