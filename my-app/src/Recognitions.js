@@ -3,16 +3,20 @@ import Filter from './filter.js';
 import DisplayList from './DisplayList.js';
 import DatePicker from 'react-date-picker';
 import GetUser from './getUser.js';
+import Recognition from './mockDB';
 
 class Recognitions extends Component {
   constructor(props) {
     super(props);
-    this.state = {page:'', beginDate: new Date(), endDate: new Date(), userSelected: ''};
+    this.state = {page:'', filteredArr:[], beginDate: new Date(), endDate: new Date(), userSelected: ''};
+    //state filteredArr will initially be set to mockdb
   }
 
   onChangeBeginDate = beginDate => this.setState({beginDate: beginDate});
   onChangeEndDate = endDate => this.setState({endDate: endDate});
   onChangeGetUser = (e) => this.setState({userSelected: e.target.value.toString()});
+
+  //this is where filter logic will happen and filteredArr state will be set
   onFilterButton = (e) => {
     alert(this.state.userSelected);
     alert(this.state.beginDate);
@@ -20,6 +24,8 @@ class Recognitions extends Component {
   }
 
   render() {
+
+    // static label for username input datalist
     let label = '';
     var recognitionsArray = [];
     var datalist=['test','bill','egor'];
@@ -35,24 +41,26 @@ class Recognitions extends Component {
       recognitionsArray = recognitionSentArray;
     }
       return (
-        <div>
-          <div className='d-flex flex-row flex-wrap'>
-            <div className='p-2'>
-              <label className='mr-2'>{label}</label>
-              <GetUser listusers={datalist} onChange={this.onChangeGetUser}/>
-            </div>
-            <div className='p-2'>
-              From
-              <DatePicker className='p-2' onChange={this.onChangeBeginDate} value={this.state.beginDate} clearIcon={null} calendarIcon={calendarIco}/>
-              To
-              <DatePicker className='p-2' onChange={this.onChangeEndDate} value={this.state.endDate} clearIcon={null} />
-            </div>
-            <div className='p-3'>
-              <button className='btn-info' onClick={this.onFilterButton}>Filter</button>
-            </div>
+
+        // rendering of filter component
+        <div className='d-flex flex-row flex-wrap'>
+          <div className='p-2'>
+            <label className='mr-2'>{label}</label>
+            <GetUser listusers={datalist} onChange={this.onChangeGetUser}/>
+          </div>
+          <div className='p-2'>
+            From
+            <DatePicker className='p-2' onChange={this.onChangeBeginDate} value={this.state.beginDate} clearIcon={null} calendarIcon={calendarIco}/>
+            To
+            <DatePicker className='p-2' onChange={this.onChangeEndDate} value={this.state.endDate} clearIcon={null} />
+          </div>
+          <div className='p-3'>
+            <button className='btn-info' onClick={this.onFilterButton}>Filter</button>
           </div>
           <DisplayList recognitions={recognitionsArray} />
         </div>
+
+        //rendering of filtered recognitions by calling display component and passing down filteredArr
       );
   };
 };
