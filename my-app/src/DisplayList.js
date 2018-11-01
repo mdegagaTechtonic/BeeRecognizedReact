@@ -1,10 +1,10 @@
 import React from 'react';
 import ListItem from './ListItem.js';
-import ShowMore from 'react-show-more';
 
 export const DisplayList = (props) => {
 console.log(props);
 console.log(props.page);
+// var this.page = props.page;
   if (props.page === 'RR') {
     return (
 
@@ -23,19 +23,13 @@ console.log(props.page);
     return (
       props.recognitions.map((recognition) => {
         return (
-          <ShowMore
-            lines={5}
-            more='Show more'
-            less='Show less'
-            anchorClass=''
-          >
+
             <ListItem
               name={ recognition.sender }
               avatar={ recognition.avatarSender }
               date={ recognition.date }
               message={ recognition.message }
             />
-          </ShowMore>
         );
       })
     );
@@ -48,6 +42,7 @@ console.log(props.page);
             avatar={ recognition.avatarReceiver }
             date={ recognition.date }
             message={ recognition.message }
+            page={ props.page }
           />
         );
       })

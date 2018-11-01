@@ -1,4 +1,5 @@
 import React from 'react';
+import ShowMore from 'react-show-more';
 
 export const ListItem = (props) => {
   return (
@@ -12,7 +13,14 @@ export const ListItem = (props) => {
         <div className='float-left w-100'>
           <small className='text-muted mr-2 float-right'>{props.date}</small>
           <br />
-          <p className='mt-1 mb-1 text-left'>{props.message}</p>
+          <ShowMore
+              lines={6}
+              more='Show more'
+              less='Show less'
+              anchorClass=''
+            >
+            {props.message}
+          </ShowMore>
         </div>
       </div>
     </div>
