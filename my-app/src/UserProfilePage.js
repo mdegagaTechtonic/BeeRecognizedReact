@@ -121,7 +121,9 @@ class UserProfilePage extends React.Component {
                   <h3 className="mb-1">Recognition Received</h3>
                 </div>
               </div>
-              <DisplayList recognitions={lastFiveRecognition} page={this.page} />
+
+
+
             </nav>
           </div>
         </div>
@@ -129,5 +131,7 @@ class UserProfilePage extends React.Component {
     );
   }
 }
+
+// <DisplayList recognitions={lastFiveRecognition} page={this.page} />
 
 export default UserProfilePage;

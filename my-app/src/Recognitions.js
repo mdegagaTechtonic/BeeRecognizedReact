@@ -28,9 +28,9 @@ class Recognitions extends Component {
     console.log(db);
 
     if(props.page == 'RR') {
-      this.allRecognitionsArr = this.constructor.getAllRecognitionReceived(db);
+      this.allRecognitionsArr = this.getAllRecognitionReceived(db);
     } else {
-      this.allRecognitionsArr = this.constructor.getAllRecognitionSent(db);
+      this.allRecognitionsArr = this.getAllRecognitionSent(db);
     }
     this.displayAllRecognition();
   }
@@ -42,8 +42,8 @@ class Recognitions extends Component {
     // });
   };
 
-  static getAllRecognitionReceived(db) {
-    var username = 'MerryD';
+  getAllRecognitionReceived(db) {
+    var username = this.username;
     var receivedRecognition = [];
     for (var i = 0; i < db.length; i++) {
       if (db[i].receiver.toLowerCase() === username.toLowerCase()) {
@@ -53,7 +53,7 @@ class Recognitions extends Component {
     return receivedRecognition;
   }
 
-  static getRecentRecognition(db) {
+  getRecentRecognition(db) {
     var received = this.getAllRecognitionReceived(db);
     if (received.length > 5) {
       var recentFive = received.slice(0, 5);
@@ -64,8 +64,8 @@ class Recognitions extends Component {
     }
   };
 
-  static getAllRecognitionSent(db) {
-    var username = 'MerryD';
+  getAllRecognitionSent(db) {
+    var username = this.username;
     var sentRecognition = [];
     for (var i = 0; i < db.length; i++) {
       if (db[i].sender.toLowerCase() === username.toLowerCase()) {
