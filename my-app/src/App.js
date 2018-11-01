@@ -18,7 +18,10 @@ import {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { isLoggedIn: false, currUser: '' };
+    this.state = {
+      isLoggedIn: false,
+      currUser: '',
+    };
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
   }
@@ -38,9 +41,9 @@ class App extends Component {
         <Router>
          <div>
           <Navigation action={this.handleLogout} />
-          <Redirect to= '/UserProfilePage' />
+          <Redirect to='/UserProfilePage' />
            <Switch>
-             <Route exact path="/UserProfilePage" component={UserProfilePage} />
+             <Route exact path="/UserProfilePage" component={props => <UserProfilePage currUser={'Erik'} />} />
              <Route path="/RR" component={props => <Recognitions page={'RR'} />} />
              <Route path="/RS" component={props => <Recognitions page={'RS'} />} />
            </Switch>

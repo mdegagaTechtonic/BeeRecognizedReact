@@ -193,7 +193,7 @@ class Recognitions extends Component {
         <div className='p-3'>
           <button className='btn-info' onClick={this.onFilterButton}>Filter</button>
         </div>
-        <DisplayList recognitions={this.state.filteredArr} />
+        <DisplayList recognitions={this.state.filteredArr} page={'RR'}/>
       </div>
 
       //rendering of filtered recognitions by calling display component and passing down filteredArr

@@ -5,6 +5,7 @@ import Logout from './logout';
 import Login from './login';
 import Recognition from './mockDB';
 import DisplayList from './DisplayList';
+import BeesReceived from './BeesReceived';
 
 class UserProfilePage extends React.Component {
   constructor(props) {
@@ -12,13 +13,19 @@ class UserProfilePage extends React.Component {
     this.state = {
       numberOfBeesToGive: 5,
       MessageAlert: false,
+      numberOfBeesReceived: '10',
     };
   }
 
+
   render () {
     var recognitionsArray = JSON.parse(localStorage.getItem('db'));
+    var count = recognitionsArray.length;
+    console.log(count);
     var lastFiveRecognition = Recognitions.getRecentRecognition(recognitionsArray);
     console.log(lastFiveRecognition);
+    // var userName = {this.state.currUser};
+    // var user = {avatarReceiver: 'avatars/erikhoy.png', receiver: userName};
 
     return (
       <div className="container-fluid">
@@ -28,8 +35,22 @@ class UserProfilePage extends React.Component {
             <div id="user-info" className="pb-5">
               <h1>User Information</h1>
               <p>
-                <img src="http://www.shades.org/assets/img/portrait_placeholder.jpg" className="rounded mr-3" width="100px" align="left" id="avatar"/><strong id="username">Username</strong><br/><img src="images/bee.png" width="30"/> to give <span className="d-inline-block" tabindex="0" data-toggle="tooltip" title="Number of bees available to distribute"><span className="badge badge-pill badge-primary" id="beesToGive"></span></span><br/>
-                <img src="images/bee.png" width="30"/> received <span className="d-inline-block" tabindex="0" data-toggle="tooltip" title="Number of bees received"><span className="badge badge-pill badge-success" id="totalBeesReceived"></span></span>
+                <img src="images/avatars/erikhoy.png" className="rounded mr-3" width="100px" align="left" id="avatar"/>
+                <strong id="username">{this.props.currUser}</strong>
+                <br/>
+                <img src="images/bee.png" width="30"/> to give
+                <span className="d-inline-block" tabIndex="0" data-toggle="tooltip" title="Number of bees available to distribute">
+                  <span className="badge badge-pill badge-primary" id="beesToGive">
+                    {this.state.numberOfBeesToGive}
+                  </span>
+                </span>
+                <br/>
+                <img src="images/bee.png" width="30"/> received&nbsp;
+                <span className="d-inline-block mr-2" tabindex="0" data-toggle="tooltip" title="Number of bees received">
+                  <span className="badge badge-pill badge-success" id="totalBeesReceived">
+                    <BeesReceived bees={count} />
+                  </span>
+                </span>
               </p>
             </div>
             {/* <!-- Recognition Form --> */}
