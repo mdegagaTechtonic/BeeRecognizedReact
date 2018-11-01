@@ -17,16 +17,12 @@ class Recognitions extends Component {
     };
 
     //state filteredArr will initially be set to mockdb
-    this.recognitionObj = new Filter();  //delete when below codes works
+    this.recognitionObj = new Filter();
     let db = JSON.parse(localStorage.getItem('db'));
 
-    //if(props.page == 'RR') {   //waiting for flag props to be passed down from router component
-    var page = 'RR'  //hard code -- delete when props.page works
-    if(page = 'RR') {
-      //this.allRecognitionsArr = this.recognitionObj.getAllRecognitionReceived();  //delete this test case when following code works
+    if(props.page == 'RR') {
       this.allRecognitionsArr = this.constructor.getAllRecognitionReceived(db);
     }else {
-      //this.allRecognitionsArr = this.recognitionObj.getAllRecognitionSent();  //delete this test case when following code works
       this.allRecognitionsArr = this.constructor.getAllRecognitionSent(db);
     };
     this.displayAllRecognition();
@@ -154,21 +150,29 @@ class Recognitions extends Component {
     require('./calendar.gif');
 
     let calendarIco = './calendar.gif';
+    let header = '';
     if (this.props.page == 'RR') {
+      header = 'Recognition Received';
       label = 'Received from';
       // recognitionsArray = recognitionReceivedArray;
       //recognitionsArray = recognitionsArray.slice(0,(recognitionsArray.length/2));
 
     } else {
+      header = 'Recognition Sent';
       label = 'Sent to';
       // recognitionsArray = recognitionSentArray;
       //recognitionsArray = recognitionsArray.slice((recognitionsArray.length/2), recognitionsArray.length-1);
     }
 
     return (
-
+<div>
       // rendering of filter component
-      <div className='d-flex flex-row flex-wrap mx-5 rounded bg-white border border-dk'>
+<div>
+          <h1 className='heading p-2'>{header}</h1>
+</div>
+<br/>
+  <div className='d-flex flex-row flex-wrap'>
+
         <div className='p-2'>
           <label className='mr-2'>{label}</label>
           <GetUser listusers={datalist} onChange={this.onChangeGetUser}/>
@@ -202,3 +206,5 @@ class Recognitions extends Component {
 };
 
 export default Recognitions;
+//<div className='d-flex flex-row flex-wrap mx-5 rounded bg-white border border-dk'>
+//<div className='d-flex flex-row flex-wrap mx-5 rounded bg-white border border-dk'>
