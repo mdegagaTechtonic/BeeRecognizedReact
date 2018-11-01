@@ -8,6 +8,7 @@ import DisplayList from './DisplayList';
 import BeesReceived from './BeesReceived';
 import BeesToGive from './BeesToGive';
 
+
 class UserProfilePage extends React.Component {
   constructor(props) {
     super(props);
@@ -105,7 +106,9 @@ class UserProfilePage extends React.Component {
                   <h3 className="mb-1">Recognition Received</h3>
                 </div>
               </div>
-              <DisplayList recognitions={lastFiveRecognition} page={this.page} />
+
+                <DisplayList recognitions={lastFiveRecognition} page={this.page} />
+
             </nav>
           </div>
         </div>
