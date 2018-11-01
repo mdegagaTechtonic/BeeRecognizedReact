@@ -8,6 +8,8 @@ import DisplayList from './DisplayList';
 import BeesReceived from './BeesReceived';
 import BeesToGive from './BeesToGive';
 import ShowMore from 'react-show-more';
+import GetUser from './getUser';
+
 
 class UserProfilePage extends React.Component {
   constructor(props) {
@@ -89,7 +91,7 @@ class UserProfilePage extends React.Component {
                 <div className="form-group input-group-lg">
                   <label for="username">Select User to Recognize</label><br/>
                   <input type="text" list="br/owsers" className="form-control rounded border border-secondary" placeholder="Username" name="receiver" ref={input => this._receiver = input}/>
-                    <datalist id="br/owsers"></datalist>
+                    <GetUser onChange={this.onChangeGetUser}/>
                 </div>
                 <div className="form-group input-group-lg">
                   <label for="message">Message</label><br/>

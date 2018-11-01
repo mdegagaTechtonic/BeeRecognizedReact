@@ -20,4 +20,4 @@ RR: recognition received page
     npm install react
     npm install store
     npm i store
-    npm install form-serialize
+    npm install react-show-more
