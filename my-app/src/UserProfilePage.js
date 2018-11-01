@@ -9,6 +9,7 @@ import BeesReceived from './Bees/BeesReceived';
 import BeesToGive from './Bees/BeesToGive';
 import ShowMore from 'react-show-more';
 import GetUser from './getUser';
+import MessageConfirmation from './MessageConfirmation'
 
 
 class UserProfilePage extends React.Component {
@@ -36,6 +37,7 @@ class UserProfilePage extends React.Component {
     db.unshift(r);
     localStorage.setItem('db', (JSON.stringify(db)));
     this.clearForm();
+    this.setState({ numberOfBeesToGive: --this.state.numberOfBeesToGive });
     event.preventDefault();
   }
 
@@ -50,9 +52,10 @@ class UserProfilePage extends React.Component {
 
   render () {
     var recognitionsArray = JSON.parse(localStorage.getItem('db'));
-    var count = recognitionsArray.length;
-    // var lastFiveRecognition = Recognitions.getRecentRecognition(recognitionsArray);
-    // console.log(lastFiveRecognition);
+    //var count = recognitionsArray.length;
+    var count = 5;
+    var lastFiveRecognition = Recognitions.getRecentRecognition(recognitionsArray);
+    console.log(lastFiveRecognition);
     this.page = 'SB';
     var user = {
       receiver: 'erikhoy',
@@ -74,14 +77,14 @@ class UserProfilePage extends React.Component {
                 <img src="images/bee.png" width="30"/> to give&nbsp;
                 <span className="d-inline-block mr-2" tabIndex="0" data-toggle="tooltip" title="Number of bees available to distribute">
                   <span className="badge badge-pill badge-primary" id="beesToGive">
-                    {user.numberOfBeesToGive}
+                    {this.state.numberOfBeesToGive}
                   </span>
                 </span>
                 <br/>
                 <img src="images/bee.png" width="30"/> received&nbsp;
                 <span className="d-inline-block mr-2" tabIndex="0" data-toggle="tooltip" title="Number of bees received">
                   <span className="badge badge-pill badge-success" id="totalBeesReceived">
-                    <BeesReceived bees={count} />
+                    <BeesReceived bees={count} page="UP" />
                   </span>
                 </span>
               </p>
@@ -91,14 +94,12 @@ class UserProfilePage extends React.Component {
               <h1>Send Recognition</h1>
               {/* <!-- success/fail message --> */}
               <div className="none" id="alert">
-                <p className="alert alert-success d-none" role="alert" id="success">Thank you. Your recognition was sent.</p>
-                <p className="alert alert-danger d-none" role="alert" id="danger">Oh no, you have no bees left to give! They are on vacation, come back later.</p>
+                <MessageConfirmation bees={this.state.numberOfBeesToGive} />
               </div>
               {/* <!-- recognition form --> */}
               <form action="" method="" autocomplete="off" onSubmit={this.handleSubmit}>
                 <div className="form-group input-group-lg">
                   <label for="username">Select User to Recognize</label><br/>
-                  {/* <input type="text" list="br/owsers" className="form-control rounded border border-secondary" placeholder="Username" name="receiver" ref={input => this._receiver = input}/> */}
                     <GetUser onChange={this.onChangeGetUser} userPage={true} method={this.targetInput}/>
                 </div>
                 <div className="form-group input-group-lg">
