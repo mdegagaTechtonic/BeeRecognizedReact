@@ -117,7 +117,7 @@ class Recognitions extends Component {
     // var datalist = ['Egor Y', 'erikhoy', 'ashley.elder', 'Jason Dang', 'Brett Goers', 'kyle.brothis', 'Shambre SW', 'MerryD'];
 
     require('./calendar.gif');
-    var count = recognitionsArray;
+    var count = this.allRecognitionsArr.length;
     let calendarIco = './calendar.gif';
     let header = '';
     if (this.props.page == 'RR') {
@@ -132,40 +132,39 @@ class Recognitions extends Component {
       // recognitionsArray = recognitionSentArray;
       //recognitionsArray = recognitionsArray.slice((recognitionsArray.length/2), recognitionsArray.length-1);
     }
-    //<BeesReceived bees={count} />
 
-    return (
-      <div className='bg-white border border-dk mx-5 rounded p-3'>
-        <h1 className='heading'>{header}</h1>
-        <img src="images/bee.png" width="30"/>
-        <div className='d-flex flex-row flex-wrap'>
+  return (
+    <div className='bg-white border border-dk mx-5 rounded p-3'>
+      <h1 className='heading'>{header}</h1>
+      <BeesReceived bees={count} />
+      <img src="images/bee.png" width="30"/>
+      <div className='d-flex flex-row flex-wrap'>
 
-          <div className='p-2'>
-            <label className='mr-2'>{label}</label>
-            {/* <GetUser listusers={datalist} onChange={this.onChangeGetUser}/> */}
-            <GetUser onChange={this.onChangeGetUser}/>
+        <div className='p-2'>
+          <label className='mr-2'>{label}</label>
+          {/* <GetUser listusers={datalist} onChange={this.onChangeGetUser}/> */}
+          <GetUser onChange={this.onChangeGetUser}/>
 
-          </div>
-          <div className='p-2'>
-            From
-            <DatePicker
-              className='p-2'
-              onChange={this.onChangeBeginDate}
-              value={this.state.beginDate}
-              clearIcon={null}
-              calendarIcon={calendarIco}
-            />
-            To
-            <DatePicker
-              className='p-2'
-              onChange={this.onChangeEndDate}
-              value={this.state.endDate}
-              clearIcon={null}
-            />
-          </div>
-          <div className='p-3'>
-            <button className='btn-info' onClick={this.onFilterButton}>Filter</button>
-          </div>
+        </div>
+        <div className='p-2'>
+          From
+          <DatePicker
+            className='p-2'
+            onChange={this.onChangeBeginDate}
+            value={this.state.beginDate}
+            clearIcon={null}
+            calendarIcon={calendarIco}
+          />
+          To
+          <DatePicker
+            className='p-2'
+            onChange={this.onChangeEndDate}
+            value={this.state.endDate}
+            clearIcon={null}
+          />
+        </div>
+        <div className='p-3'>
+          <button className='btn-info' onClick={this.onFilterButton}>Filter</button>
         </div>
           <DisplayList recognitions={this.state.filteredArr} page={this.page}/>
       </div>
