@@ -21,6 +21,7 @@ class Recognitions extends Component {
     };
 
     this.page = props.page;
+    this.username = props.username;
     //state filteredArr will initially be set to mockdb
     this.recognitionObj = new Filter();
     let db = JSON.parse(localStorage.getItem('db'));
@@ -119,13 +120,13 @@ class Recognitions extends Component {
     let calendarIco = './calendar.gif';
     let header = '';
     if (this.props.page == 'RR') {
-      header = 'Recognition Received';
+      header = this.username +' Recognition Received';
       label = 'Received from';
 
       // recognitionsArray = recognitionReceivedArray;
       //recognitionsArray = recognitionsArray.slice(0,(recognitionsArray.length/2));
     } else {
-      header = 'Recognition Sent';
+      header = this.username + ' Recognition Sent';
       label = 'Sent to';
       // recognitionsArray = recognitionSentArray;
       //recognitionsArray = recognitionsArray.slice((recognitionsArray.length/2), recognitionsArray.length-1);
