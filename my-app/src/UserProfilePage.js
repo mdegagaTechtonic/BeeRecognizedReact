@@ -21,6 +21,7 @@ class UserProfilePage extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearForm = this.clearForm.bind(this);
+    this.targetInput = this.targetInput.bind(this);
 
   }
 
@@ -43,6 +44,10 @@ class UserProfilePage extends React.Component {
     this._message.value = '';
   }
 
+  targetInput (currInput) {
+    this._receiver = currInput;
+  }
+  
   render () {
     var recognitionsArray = JSON.parse(localStorage.getItem('db'));
     var count = recognitionsArray.length;
@@ -93,8 +98,8 @@ class UserProfilePage extends React.Component {
               <form action="" method="" autocomplete="off" onSubmit={this.handleSubmit}>
                 <div className="form-group input-group-lg">
                   <label for="username">Select User to Recognize</label><br/>
-                  <input type="text" list="br/owsers" className="form-control rounded border border-secondary" placeholder="Username" name="receiver" ref={input => this._receiver = input}/>
-                    <GetUser onChange={this.onChangeGetUser}/>
+                  {/* <input type="text" list="br/owsers" className="form-control rounded border border-secondary" placeholder="Username" name="receiver" ref={input => this._receiver = input}/> */}
+                    <GetUser onChange={this.onChangeGetUser} userPage={true} method={this.targetInput}/>
                 </div>
                 <div className="form-group input-group-lg">
                   <label for="message">Message</label><br/>
