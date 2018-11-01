@@ -47,12 +47,12 @@ class UserProfilePage extends React.Component {
   targetInput (currInput) {
     this._receiver = currInput;
   }
-  
+
   render () {
     var recognitionsArray = JSON.parse(localStorage.getItem('db'));
     var count = recognitionsArray.length;
-    var lastFiveRecognition = Recognitions.getRecentRecognition(recognitionsArray);
-    console.log(lastFiveRecognition);
+    // var lastFiveRecognition = Recognitions.getRecentRecognition(recognitionsArray);
+    // console.log(lastFiveRecognition);
     this.page = 'SB';
     var user = {
       receiver: 'erikhoy',
