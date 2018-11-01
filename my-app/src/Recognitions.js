@@ -29,9 +29,9 @@ class Recognitions extends Component {
 
     if(props.page == 'RR') {
       this.allRecognitionsArr = this.constructor.getAllRecognitionReceived(db);
-    }else {
+    } else {
       this.allRecognitionsArr = this.constructor.getAllRecognitionSent(db);
-    };
+    }
     this.displayAllRecognition();
   }
 
@@ -120,7 +120,7 @@ class Recognitions extends Component {
     var count = this.allRecognitionsArr.length;
     let calendarIco = './calendar.gif';
     let header = '';
-    if (this.props.page == 'RR') {
+    if (this.props.page === 'RR') {
       header = this.username +' Recognition Received';
       label = 'Received from';
 
@@ -133,40 +133,39 @@ class Recognitions extends Component {
       //recognitionsArray = recognitionsArray.slice((recognitionsArray.length/2), recognitionsArray.length-1);
     }
 
-  return (
-    <div className='bg-white border border-dk mx-5 rounded p-3'>
-      <h1 className='heading'>{header}</h1>
-      <BeesReceived bees={count} />
-      <img src="images/bee.png" width="30"/>
-      <div className='d-flex flex-row flex-wrap'>
-
-        <div className='p-2'>
-          <label className='mr-2'>{label}</label>
-          {/* <GetUser listusers={datalist} onChange={this.onChangeGetUser}/> */}
-          <GetUser onChange={this.onChangeGetUser}/>
-
+    return (
+      <div className='bg-white border border-dk mx-5 rounded p-3'>
+        <h1 className='heading'>{header}</h1>
+        <BeesReceived bees={count} />
+        <img src="images/bee.png" width="30"/>
+        <div className='d-flex flex-row flex-wrap'>
+          <div className='p-2'>
+            <label className='mr-2'>{label}</label>
+            {/* <GetUser listusers={datalist} onChange={this.onChangeGetUser}/> */}
+            <GetUser onChange={this.onChangeGetUser}/>
+          </div>
+          <div className='p-2'>
+            From
+            <DatePicker
+              className='p-2'
+              onChange={this.onChangeBeginDate}
+              value={this.state.beginDate}
+              clearIcon={null}
+              calendarIcon={calendarIco}
+            />
+            To
+            <DatePicker
+              className='p-2'
+              onChange={this.onChangeEndDate}
+              value={this.state.endDate}
+              clearIcon={null}
+            />
+          </div>
+          <div className='p-3'>
+            <button className='btn-info' onClick={this.onFilterButton}>Filter</button>
+          </div>
+          <DisplayList recognitions={this.state.filteredArr} page={this.page} />
         </div>
-        <div className='p-2'>
-          From
-          <DatePicker
-            className='p-2'
-            onChange={this.onChangeBeginDate}
-            value={this.state.beginDate}
-            clearIcon={null}
-            calendarIcon={calendarIco}
-          />
-          To
-          <DatePicker
-            className='p-2'
-            onChange={this.onChangeEndDate}
-            value={this.state.endDate}
-            clearIcon={null}
-          />
-        </div>
-        <div className='p-3'>
-          <button className='btn-info' onClick={this.onFilterButton}>Filter</button>
-        </div>
-          <DisplayList recognitions={this.state.filteredArr} page={this.page}/>
       </div>
 
       //rendering of filtered recognitions by calling display component and passing down filteredArr
@@ -175,6 +174,3 @@ class Recognitions extends Component {
 };
 
 export default Recognitions;
-
-//<div className='d-flex flex-row flex-wrap mx-5 rounded bg-white border border-dk'>
-//<div className='d-flex flex-row flex-wrap mx-5 rounded bg-white border border-dk'>
