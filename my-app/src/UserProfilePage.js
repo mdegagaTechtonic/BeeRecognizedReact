@@ -26,12 +26,14 @@ class UserProfilePage extends React.Component {
 
   handleSubmit (event) {
     //grab form info
-    let r = new Recognition(`avatars/${this.props.currUser}`,`avatars/${this._receiver.value}`, this.props.currUser, this._receiver.value, this.state.numberOfBeesToGive, new Date(Date.now()).toDateString(), this._message.value);
+    let r = new Recognition(`avatars/${this.props.currUser}`, `avatars/${this._receiver.value}`, this.props.currUser, this._receiver.value, this.state.numberOfBeesToGive, new Date(Date.now()).toDateString(), this._message.value);
+
     //grab local localStorage
     const db = JSON.parse(localStorage.getItem('db'));
+
     //maintains the chronological order of our db
     db.unshift(r);
-    localStorage.setItem('db',(JSON.stringify(db)));
+    localStorage.setItem('db', (JSON.stringify(db)));
     this.clearForm();
     event.preventDefault();
   }
@@ -40,7 +42,6 @@ class UserProfilePage extends React.Component {
     this._receiver.value = '';
     this._message.value = '';
   }
-
 
   render () {
     var recognitionsArray = JSON.parse(localStorage.getItem('db'));
@@ -51,7 +52,7 @@ class UserProfilePage extends React.Component {
     var user = {
       receiver: 'erikhoy',
       avatarReceiver: 'avatars/erikhoy.png',
-      numberOfBeesToGive:4
+      numberOfBeesToGive: 4,
     };
 
     return (
@@ -115,9 +116,7 @@ class UserProfilePage extends React.Component {
                   <h3 className="mb-1">Recognition Received</h3>
                 </div>
               </div>
-
-                <DisplayList recognitions={lastFiveRecognition} page={this.page} />
-
+              <DisplayList recognitions={lastFiveRecognition} page={this.page} />
             </nav>
           </div>
         </div>

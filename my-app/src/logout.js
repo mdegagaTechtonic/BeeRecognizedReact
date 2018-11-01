@@ -8,18 +8,20 @@ class Logout extends React.Component {
   }
 
   render () {
-    return (<div className="row justify-content-around my-auto mx-1">
-      <div className="col-10 col-sm-7 col-md-7 col-lg-5 col-xl-4 bg-white border border-dark rounded p-4 mt-5">
-        <h1 className="text-center">BeeRecognized</h1>
-        <div className="img text-center">
-          <img id="img" src="images/bee.png" width="50"/>
+    return (
+      <div className="row justify-content-around my-auto mx-1">
+        <div className="col-10 col-sm-7 col-md-7 col-lg-5 col-xl-4 bg-white border border-dark rounded p-4 mt-5">
+          <h1 className="text-center">BeeRecognized</h1>
+          <div className="img text-center">
+            <img id="img" src="images/bee.png" width="50"/>
             <div class="text-center my-5">
-          <p>Thank you for spreading the bees</p>
-          <a href="login.html" onClick={this.props.action}>Share more?</a>
+              <p>Thank you for spreading the bees</p>
+              <a href="login.html" onClick={this.props.action}>Share more?</a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>);
+    );
   }
 }
 

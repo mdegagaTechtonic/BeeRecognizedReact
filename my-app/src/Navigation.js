@@ -8,10 +8,21 @@ import {
 } from 'react-router-dom';
 
 class Navigation extends React.Component {
-  render () {return (<header>
-      <nav className="navbar active navbar-expand-lg navbar-light bg-white fixed-top border border-dark border-top-0 border-left-0 border-right-0">
-          <span className="navbar-brand"><img src="images/bee.png" width="30px"/> BeeRecognized</span>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  render () {
+    return (
+      <header>
+        <nav className="navbar active navbar-expand-lg navbar-light bg-white fixed-top border border-dark border-top-0 border-left-0 border-right-0">
+          <span className="navbar-brand">
+            <img src="images/bee.png" width="30px"/> BeeRecognized
+          </span>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -30,7 +41,10 @@ class Navigation extends React.Component {
               </li>
             </ul>
           </div>
-      </nav></header>
-  );
-}}
+        </nav>
+      </header>
+    );
+  }
+}
+
 export default Navigation;

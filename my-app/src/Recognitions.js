@@ -55,7 +55,6 @@ class Recognitions extends Component {
 
   static getRecentRecognition(db) {
     var received = this.getAllRecognitionReceived(db);
-
     if (received.length > 5) {
       var recentFive = received.slice(0, 5);
       return recentFive;
@@ -83,7 +82,7 @@ class Recognitions extends Component {
   //this is where filter logic will happen and filteredArr state will be set
   onFilterButton = (e) => {
     this.filter('RR');
-  }
+  };
 
   filter(pageFlag) {
 
@@ -93,17 +92,18 @@ class Recognitions extends Component {
     //var filteredArr = this.recognitionObj.filterResults(pageFlag, this.state.userSelected, this.state.beginDate, this.state.endDate, this.allRecognitionsArr);
     var filteredArr = this.recognitionObj.filterResults(pageFlag, this.state.userSelected, this.state.beginDate, this.state.endDate, this.allRecognitionsArr);
 
-    if(filteredArr.length>0) {
-      this.setState({filteredArr: filteredArr});
-          //because setState is async, providing a callback waits for state to be updated=
-           // this.setState({filteredArr: filteredArr}, function() {
-           //   console.log(this.state.filteredArr);
-           //   });
-      } else {
-        var notFoundObj = new Recognition('',' ','',' ',0,' ','0 results found.');
-        this.setState({filteredArr: [notFoundObj]});
-      }
-    };
+    if (filteredArr.length > 0) {
+      this.setState({ filteredArr: filteredArr });
+
+      //because setState is async, providing a callback waits for state to be updated=
+      // this.setState({filteredArr: filteredArr}, function() {
+      //   console.log(this.state.filteredArr);
+      //   });
+    } else {
+      var notFoundObj = new Recognition('', ' ', '', ' ', 0, ' ', '0 results found.');
+      this.setState({ filteredArr: [notFoundObj] });
+    }
+  };
 
 
   render() {
@@ -113,6 +113,7 @@ class Recognitions extends Component {
 
     // var recognitionsArray = [];
     var recognitionsArray = JSON.parse(localStorage.getItem('db'));
+
     // var datalist = ['Egor Y', 'erikhoy', 'ashley.elder', 'Jason Dang', 'Brett Goers', 'kyle.brothis', 'Shambre SW', 'MerryD'];
 
     require('./calendar.gif');
@@ -133,46 +134,48 @@ class Recognitions extends Component {
     }
     //<BeesReceived bees={count} />
 
-  return (
-    <div className='bg-white border border-dk mx-5 rounded p-3'>
-      <h1 className='heading'>{header}</h1>
-      <img src="images/bee.png" width="30"/>
-      <div className='d-flex flex-row flex-wrap'>
+    return (
+      <div className='bg-white border border-dk mx-5 rounded p-3'>
+        <h1 className='heading'>{header}</h1>
+        <img src="images/bee.png" width="30"/>
+        <div className='d-flex flex-row flex-wrap'>
 
-        <div className='p-2'>
-          <label className='mr-2'>{label}</label>
-          {/* <GetUser listusers={datalist} onChange={this.onChangeGetUser}/> */}
-          <GetUser onChange={this.onChangeGetUser}/>
+          <div className='p-2'>
+            <label className='mr-2'>{label}</label>
+            {/* <GetUser listusers={datalist} onChange={this.onChangeGetUser}/> */}
+            <GetUser onChange={this.onChangeGetUser}/>
 
+          </div>
+          <div className='p-2'>
+            From
+            <DatePicker
+              className='p-2'
+              onChange={this.onChangeBeginDate}
+              value={this.state.beginDate}
+              clearIcon={null}
+              calendarIcon={calendarIco}
+            />
+            To
+            <DatePicker
+              className='p-2'
+              onChange={this.onChangeEndDate}
+              value={this.state.endDate}
+              clearIcon={null}
+            />
+          </div>
+          <div className='p-3'>
+            <button className='btn-info' onClick={this.onFilterButton}>Filter</button>
+          </div>
         </div>
-        <div className='p-2'>
-          From
-          <DatePicker
-            className='p-2'
-            onChange={this.onChangeBeginDate}
-            value={this.state.beginDate}
-            clearIcon={null}
-            calendarIcon={calendarIco}
-          />
-          To
-          <DatePicker
-            className='p-2'
-            onChange={this.onChangeEndDate}
-            value={this.state.endDate}
-            clearIcon={null}
-          />
-        </div>
-        <div className='p-3'>
-          <button className='btn-info' onClick={this.onFilterButton}>Filter</button>
-        </div>
+          <DisplayList recognitions={this.state.filteredArr} page={this.page}/>
       </div>
-        <DisplayList recognitions={this.state.filteredArr} page={this.page}/>
-    </div>
+
       //rendering of filtered recognitions by calling display component and passing down filteredArr
     );
   };
 };
 
 export default Recognitions;
+
 //<div className='d-flex flex-row flex-wrap mx-5 rounded bg-white border border-dk'>
 //<div className='d-flex flex-row flex-wrap mx-5 rounded bg-white border border-dk'>
