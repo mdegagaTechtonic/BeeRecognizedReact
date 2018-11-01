@@ -16,6 +16,7 @@ class Recognitions extends Component {
       userSelected: '',
     };
 
+    this.page = props.page;
     //state filteredArr will initially be set to mockdb
     this.recognitionObj = new Filter();
     let db = JSON.parse(localStorage.getItem('db'));
@@ -164,14 +165,10 @@ class Recognitions extends Component {
       //recognitionsArray = recognitionsArray.slice((recognitionsArray.length/2), recognitionsArray.length-1);
     }
 
-    return (
-<div>
-      // rendering of filter component
-<div>
-          <h1 className='heading p-2'>{header}</h1>
-</div>
-<br/>
-  <div className='d-flex flex-row flex-wrap'>
+  return (
+    <div>
+      <h1 className='heading'>{header}</h1>
+      <div className='d-flex flex-row flex-wrap'>
 
         <div className='p-2'>
           <label className='mr-2'>{label}</label>
@@ -197,9 +194,9 @@ class Recognitions extends Component {
         <div className='p-3'>
           <button className='btn-info' onClick={this.onFilterButton}>Filter</button>
         </div>
-        <DisplayList recognitions={this.state.filteredArr} page={'RR'}/>
       </div>
-
+        <DisplayList recognitions={this.state.filteredArr} page={this.page}/>
+    </div>
       //rendering of filtered recognitions by calling display component and passing down filteredArr
     );
   };
