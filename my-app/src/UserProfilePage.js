@@ -45,12 +45,14 @@ class UserProfilePage extends React.Component {
   render () {
     var recognitionsArray = JSON.parse(localStorage.getItem('db'));
     var count = recognitionsArray.length;
-    console.log(count);
     var lastFiveRecognition = Recognitions.getRecentRecognition(recognitionsArray);
     console.log(lastFiveRecognition);
     this.page = 'SB';
-    // var userName = {this.state.currUser};
-    // var user = {avatarReceiver: 'avatars/erikhoy.png', receiver: userName};
+    var user = {
+      receiver: 'erikhoy',
+      avatarReceiver: 'avatars/erikhoy.png',
+      numberOfBeesToGive:4
+    };
 
     return (
       <div className="container-fluid">
@@ -60,13 +62,13 @@ class UserProfilePage extends React.Component {
             <div id="user-info" className="pb-5">
               <h1>User Information</h1>
               <p>
-                <img src="images/avatars/erikhoy.png" className="rounded mr-3" width="100px" align="left" id="avatar"/>
-                <strong id="username">{this.props.currUser}</strong>
+                <img src={`images/${user.avatarReceiver}`} className="rounded mr-3" width="100px" align="left" id="avatar"/>
+                <strong id="username">{user.receiver}</strong>
                 <br/>
-                <img src="images/bee.png" width="30"/> to give
-                <span className="d-inline-block" tabIndex="0" data-toggle="tooltip" title="Number of bees available to distribute">
+                <img src="images/bee.png" width="30"/> to give&nbsp;
+                <span className="d-inline-block mr-2" tabIndex="0" data-toggle="tooltip" title="Number of bees available to distribute">
                   <span className="badge badge-pill badge-primary" id="beesToGive">
-                    {this.state.numberOfBeesToGive}
+                    {user.numberOfBeesToGive}
                   </span>
                 </span>
                 <br/>
