@@ -4,7 +4,7 @@ export const BeesReceived = (props) => {
 
 
   return (
-    <div>&nbsp;{props.bees} </div>
+    <span className='badge badge-pill badge-success align-self-center p-3'>Total:&nbsp;{props.bees} </span>
   );
 };
 
