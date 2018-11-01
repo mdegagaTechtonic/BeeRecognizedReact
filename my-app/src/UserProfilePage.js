@@ -5,11 +5,8 @@ import Logout from './logout';
 import Login from './login';
 import Recognition from './mockDB';
 import DisplayList from './DisplayList';
-<<<<<<< HEAD
 import BeesReceived from './BeesReceived';
-=======
 import BeesToGive from './BeesToGive';
->>>>>>> 7637024ceca672d21778870538e9e69acc1a656b
 
 class UserProfilePage extends React.Component {
   constructor(props) {
@@ -28,6 +25,7 @@ class UserProfilePage extends React.Component {
     console.log(count);
     var lastFiveRecognition = Recognitions.getRecentRecognition(recognitionsArray);
     console.log(lastFiveRecognition);
+    this.page = 'SB';
     // var userName = {this.state.currUser};
     // var user = {avatarReceiver: 'avatars/erikhoy.png', receiver: userName};
 
@@ -50,7 +48,7 @@ class UserProfilePage extends React.Component {
                 </span>
                 <br/>
                 <img src="images/bee.png" width="30"/> received&nbsp;
-                <span className="d-inline-block mr-2" tabindex="0" data-toggle="tooltip" title="Number of bees received">
+                <span className="d-inline-block mr-2" tabIndex="0" data-toggle="tooltip" title="Number of bees received">
                   <span className="badge badge-pill badge-success" id="totalBeesReceived">
                     <BeesReceived bees={count} />
                   </span>
@@ -92,7 +90,7 @@ class UserProfilePage extends React.Component {
                   <h3 className="mb-1">Recognition Received</h3>
                 </div>
               </div>
-              <DisplayList recognitions={lastFiveRecognition} />
+              <DisplayList recognitions={lastFiveRecognition} page={this.page} />
             </nav>
           </div>
         </div>

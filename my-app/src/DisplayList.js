@@ -3,14 +3,15 @@ import ListItem from './ListItem.js';
 
 export const DisplayList = (props) => {
 console.log(props);
-
-  if (props.page === 'RR') {
+console.log(props.page);
+  if (props.page === 'RR' || props.page === 'SB') {
     return (
+
       props.recognitions.map((recognition) => {
         return (
           <ListItem
-            sender={ recognition.sender }
-            avatarSender={ recognition.avatarSender }
+            name={ recognition.sender }
+            avatar={ recognition.avatarSender }
             date={ recognition.date }
             message={ recognition.message }
           />
@@ -22,8 +23,8 @@ console.log(props);
       props.recognitions.map((recognition) => {
         return (
           <ListItem
-            receiver={ recognition.receiver }
-            avatarReceiver={ recognition.avatarReceiver }
+            name={ recognition.receiver }
+            avatar={ recognition.avatarReceiver }
             date={ recognition.date }
             message={ recognition.message }
           />
