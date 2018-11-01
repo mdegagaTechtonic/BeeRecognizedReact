@@ -9,7 +9,7 @@ export const ListItem = (props) => {
           <br />
           <h5 className='mt-2 mb-2'>{props.name}</h5>
         </div>
-        <div className='float-left'>
+        <div className='float-left w-100'>
           <small className='text-muted mr-2 float-right'>{props.date}</small>
           <br />
           <p className='mt-1 mb-1 text-left'>{props.message}</p>
