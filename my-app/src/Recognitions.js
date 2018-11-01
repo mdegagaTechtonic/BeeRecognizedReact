@@ -136,7 +136,7 @@ class Recognitions extends Component {
     return (
       <div className='bg-white border border-dk mx-5 rounded p-3'>
         <h1 className='heading'>{header}</h1>
-        <BeesReceived bees={count} />
+        <BeesReceived bees={count} page={this.props.page}/>
         <img src="images/bee.png" width="30"/>
         <div className='d-flex flex-row flex-wrap'>
           <div className='p-2'>
