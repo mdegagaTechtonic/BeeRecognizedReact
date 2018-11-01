@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import Filter from './filter.js';
-import DisplayList from './DisplayList.js';
 import DatePicker from 'react-date-picker';
-import GetUser from './getUser.js';
 import Recognition from './mockDB';
+import DisplayList from './DisplayList';
+import BeesReceived from './Bees/BeesReceived';
+import BeesToGive from './Bees/BeesToGive';
+import ShowMore from 'react-show-more';
+import GetUser from './getUser';
+
 
 class Recognitions extends Component {
   constructor(props) {
@@ -17,6 +21,7 @@ class Recognitions extends Component {
     };
 
     this.page = props.page;
+    this.username = props.username;
     //state filteredArr will initially be set to mockdb
     this.recognitionObj = new Filter();
     let db = JSON.parse(localStorage.getItem('db'));
@@ -111,25 +116,27 @@ class Recognitions extends Component {
     // var datalist = ['Egor Y', 'erikhoy', 'ashley.elder', 'Jason Dang', 'Brett Goers', 'kyle.brothis', 'Shambre SW', 'MerryD'];
 
     require('./calendar.gif');
-
+    var count = recognitionsArray;
     let calendarIco = './calendar.gif';
     let header = '';
     if (this.props.page == 'RR') {
-      header = 'Recognition Received';
+      header = this.username +' Recognition Received';
       label = 'Received from';
 
       // recognitionsArray = recognitionReceivedArray;
       //recognitionsArray = recognitionsArray.slice(0,(recognitionsArray.length/2));
     } else {
-      header = 'Recognition Sent';
+      header = this.username + ' Recognition Sent';
       label = 'Sent to';
       // recognitionsArray = recognitionSentArray;
       //recognitionsArray = recognitionsArray.slice((recognitionsArray.length/2), recognitionsArray.length-1);
     }
+    //<BeesReceived bees={count} />
 
   return (
     <div className='bg-white border border-dk mx-5 rounded p-3'>
       <h1 className='heading'>{header}</h1>
+      <img src="images/bee.png" width="30"/>
       <div className='d-flex flex-row flex-wrap'>
 
         <div className='p-2'>

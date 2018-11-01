@@ -1,5 +1,5 @@
 import React from 'react';
-import UserProfilePage from './UserProfilePage';
+import UserProfilePage from '../UserProfilePage';
 
 const BeesToGive = (props) => {
   return (
