@@ -50,14 +50,24 @@ class Recognitions extends Component {
     return receivedRecognition;
   }
 
-  static getAllRecognitionSent(db){
+  static getRecentRecognition(db) {
+    var received = this.getAllRecognitionReceived(db);
+
+    if (received.length > 5) {
+      var recentFive = received.slice(0, 5);
+      return recentFive;
+    }
+    if (received.length <= 5) {
+      return received;
+    }
+  };
+
+  static getAllRecognitionSent(db) {
     var username = 'MerryD';
     var sentRecognition = [];
     for (var i = 0; i < db.length; i++) {
-      // console.log(i);
-      // console.log(db[i].sender);
       if (db[i].sender.toLowerCase() === username.toLowerCase()) {
-      sentRecognition.push(db[i]);
+        sentRecognition.push(db[i]);
       }
     }
     return sentRecognition;
