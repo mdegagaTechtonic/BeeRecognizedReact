@@ -116,7 +116,7 @@ class Recognitions extends Component {
     // var datalist = ['Egor Y', 'erikhoy', 'ashley.elder', 'Jason Dang', 'Brett Goers', 'kyle.brothis', 'Shambre SW', 'MerryD'];
 
     require('./calendar.gif');
-    var count = recognitionsArray;
+    var count = this.allRecognitionsArr.length;
     let calendarIco = './calendar.gif';
     let header = '';
     if (this.props.page == 'RR') {
@@ -131,11 +131,11 @@ class Recognitions extends Component {
       // recognitionsArray = recognitionSentArray;
       //recognitionsArray = recognitionsArray.slice((recognitionsArray.length/2), recognitionsArray.length-1);
     }
-    //<BeesReceived bees={count} />
 
   return (
     <div className='bg-white border border-dk mx-5 rounded p-3'>
       <h1 className='heading'>{header}</h1>
+      <BeesReceived bees={count} />
       <img src="images/bee.png" width="30"/>
       <div className='d-flex flex-row flex-wrap'>
 
