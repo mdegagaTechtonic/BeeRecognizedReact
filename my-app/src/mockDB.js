@@ -1,4 +1,5 @@
 require('store');
+
 class Recognition {
   constructor(avatarSender, avatarReceiver, sender, receiver, beesToGive, date, message) {
     this.avatarSender = avatarSender;
@@ -8,18 +9,18 @@ class Recognition {
     this.beesToGive = beesToGive;
     this.date = date;
     this.message = message;
-    var recognition = this.sortDBByDate();
-    localStorage.setItem('db', JSON.stringify(recognition));
+
   }
-  sortDBByDate (recognition) {
-    var recognition = [r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19, r20, r21, r22, r23, r24];
+
+  static sortDBByDate(recognition) {
+    var recognition = [r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25];
     recognition.sort(function (a, b) {
       return new Date(b.date) - new Date(a.date);
     });
     return recognition;
   };
 };
-//recognition.sort((a, b) => new Date(b.date) - new Date(a.date);
+
 const r1 = new Recognition("avatars/kyle.brothis.png", "avatars/ashley.elder.png", "kyle.brothis", "ashley.elder", 2, "10/2/2018", "Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit. Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.")
 const r2 = new Recognition("avatars/ashley.elder.png", "avatars/MerryD.png", "ashley.elder", "MerryD", 2, "06/11/2018", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
 const r3 = new Recognition("avatars/BrettGoers.png", "avatars/MerryD.png", "Brett Goers", "MerryD", 3, "09/30/2017", "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?")
@@ -45,4 +46,7 @@ const r22 = new Recognition("avatars/MerryD.png", "avatars/ashley.elder.png", "M
 const r23 = new Recognition("avatars/MerryD.png", "avatars/erikhoy.png", "MerryD", "erikhoy", 2, "10/02/2017", "Oh, and remember: next Friday... is Hawaiian shirt day. So, you know, if you want to, go ahead and wear a Hawaiian shirt and jeans.")
 const r24 = new Recognition("avatars/MerryD.png", "avatars/ShambreSW.png", "MerryD", "ShambreSW", 2, "06/28/2018", "Yeah........I'm gonna need you to come in on Saturday.")
 const r25 = new Recognition("avatars/MerryD.png", "avatars/Egor.png", "MerryD", "Egor", 4, "10/12/2018", "I believe you have my stapler.")
+
+localStorage.setItem('db', JSON.stringify(Recognition.sortDBByDate()));
+
 export default Recognition;
