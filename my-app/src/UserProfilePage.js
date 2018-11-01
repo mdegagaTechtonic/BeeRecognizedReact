@@ -5,8 +5,8 @@ import Logout from './logout';
 import Login from './login';
 import Recognition from './mockDB';
 import DisplayList from './DisplayList';
-import BeesReceived from './BeesReceived';
-import BeesToGive from './BeesToGive';
+import BeesReceived from './Bees/BeesReceived';
+import BeesToGive from './Bees/BeesToGive';
 import ShowMore from 'react-show-more';
 import GetUser from './getUser';
 
