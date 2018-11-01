@@ -20,6 +20,7 @@ class Recognitions extends Component {
     //state filteredArr will initially be set to mockdb
     this.recognitionObj = new Filter();
     let db = JSON.parse(localStorage.getItem('db'));
+    console.log(db);
 
     if(props.page == 'RR') {
       this.allRecognitionsArr = this.constructor.getAllRecognitionReceived(db);

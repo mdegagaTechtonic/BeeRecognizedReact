@@ -16,6 +16,21 @@ class UserProfilePage extends React.Component {
       MessageAlert: false,
       numberOfBeesReceived: '10',
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit (event) {
+    //grab form info
+    let serialize = require('form-serialize');
+    let form = document.querySelector('form');
+    form = serialize(form, { hash: true });
+    let r = new Recognition(`avatars/${this.props.currUser}`,`avatars/${form.receiver}`, this.props.currUser, form.receiver, this.state.numberOfBeesToGive, new Date(Date.now()).toDateString(), form.message);
+    //grab local localStorage
+    const db = JSON.parse(localStorage.getItem('db'));
+    //maintains the chronological order of our db
+    db.unshift(r);
+    localStorage.setItem('db',(JSON.stringify(db)));
+    event.preventDefault();
   }
 
 
@@ -64,10 +79,10 @@ class UserProfilePage extends React.Component {
                 <p className="alert alert-danger d-none" role="alert" id="danger">Oh no, you have no bees left to give! They are on vacation, come back later.</p>
               </div>
               {/* <!-- recognition form --> */}
-              <form action="" method="" autocomplete="off">
+              <form action="" method="" autocomplete="off" ref={el => (this.form = el)} onSubmit={this.handleSubmit}>
                 <div className="form-group input-group-lg">
                   <label for="username">Select User to Recognize</label><br/>
-                  <input type="text" list="br/owsers" className="form-control rounded border border-secondary" placeholder="Username" name="sender"/>
+                  <input type="text" list="br/owsers" className="form-control rounded border border-secondary" placeholder="Username" name="receiver"/>
                     <datalist id="br/owsers"></datalist>
                 </div>
                 <div className="form-group input-group-lg">
