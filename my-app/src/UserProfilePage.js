@@ -5,7 +5,11 @@ import Logout from './logout';
 import Login from './login';
 import Recognition from './mockDB';
 import DisplayList from './DisplayList';
+<<<<<<< HEAD
 import BeesReceived from './BeesReceived';
+=======
+import BeesToGive from './BeesToGive';
+>>>>>>> 7637024ceca672d21778870538e9e69acc1a656b
 
 class UserProfilePage extends React.Component {
   constructor(props) {
