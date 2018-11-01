@@ -17,13 +17,18 @@ class Recognitions extends Component {
     };
 
     //state filteredArr will initially be set to mockdb
-    this.recognitionObj = new Filter();
+    this.recognitionObj = new Filter();  //delete when below codes works
     let db = JSON.parse(localStorage.getItem('db'));
-    //if(props.page == 'RR') {
-      this.allRecognitionsArr = this.recognitionObj.getAllRecognitionReceived();
-    //}else {
-      //this.allRecognitionsArr = this.recognitionObj.getAllRecognitionSent();
-    //};
+
+    //if(props.page == 'RR') {   //waiting for flag props to be passed down from router component
+    var page = 'RR'  //hard code -- delete when props.page works
+    if(page = 'RR') {
+      //this.allRecognitionsArr = this.recognitionObj.getAllRecognitionReceived();  //delete this test case when following code works
+      this.allRecognitionsArr = this.constructor.getAllRecognitionReceived(db);
+    }else {
+      //this.allRecognitionsArr = this.recognitionObj.getAllRecognitionSent();  //delete this test case when following code works
+      this.allRecognitionsArr = this.constructor.getAllRecognitionSent(db);
+    };
     this.displayAllRecognition();
   }
 
@@ -69,21 +74,22 @@ class Recognitions extends Component {
 
   filter(pageFlag) {
 
-      //populate datalist with usernames when slack API is finished
-      //getUserNames();
+    //populate datalist with usernames when slack API is finished
+    //getUserNames();
 
+    //var filteredArr = this.recognitionObj.filterResults(pageFlag, this.state.userSelected, this.state.beginDate, this.state.endDate, this.allRecognitionsArr);
     var filteredArr = this.recognitionObj.filterResults(pageFlag, this.state.userSelected, this.state.beginDate, this.state.endDate, this.allRecognitionsArr);
 
-        if(filteredArr.length>0) {
-          this.setState({filteredArr: filteredArr});
+    if(filteredArr.length>0) {
+      this.setState({filteredArr: filteredArr});
           //because setState is async, providing a callback waits for state to be updated=
            // this.setState({filteredArr: filteredArr}, function() {
            //   console.log(this.state.filteredArr);
            //   });
-         } else {
-           var notFoundObj = new Recognition('',' ','',' ',0,' ','0 results found.');
-           this.setState({filteredArr: [notFoundObj]});
-         }
+      } else {
+        var notFoundObj = new Recognition('',' ','',' ',0,' ','0 results found.');
+        this.setState({filteredArr: [notFoundObj]});
+      }
     };
 
 
