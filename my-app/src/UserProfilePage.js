@@ -7,7 +7,7 @@ import Recognition from './mockDB';
 import DisplayList from './DisplayList';
 import BeesReceived from './BeesReceived';
 import BeesToGive from './BeesToGive';
-
+import ShowMore from 'react-show-more';
 
 class UserProfilePage extends React.Component {
   constructor(props) {
