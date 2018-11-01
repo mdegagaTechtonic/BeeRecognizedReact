@@ -5,6 +5,7 @@ import Logout from './logout';
 import Login from './login';
 import Recognition from './mockDB';
 import DisplayList from './DisplayList';
+import BeesToGive from './BeesToGive';
 
 class UserProfilePage extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class UserProfilePage extends React.Component {
             <div id="user-info" className="pb-5">
               <h1>User Information</h1>
               <p>
-                <img src="http://www.shades.org/assets/img/portrait_placeholder.jpg" className="rounded mr-3" width="100px" align="left" id="avatar"/><strong id="username">Username</strong><br/><img src="images/bee.png" width="30"/> to give <span className="d-inline-block" tabindex="0" data-toggle="tooltip" title="Number of bees available to distribute"><span className="badge badge-pill badge-primary" id="beesToGive"></span></span><br/>
+                <img src="http://www.shades.org/assets/img/portrait_placeholder.jpg" className="rounded mr-3" width="100px" align="left" id="avatar"/><strong id="username">Username</strong><br/><img src="images/bee.png" width="30"/> to give <span className="d-inline-block" tabindex="0" data-toggle="tooltip" title="Number of bees available to distribute"><BeesToGive beesToGive={this.state.numberOfBeesToGive}/></span><br/>
                 <img src="images/bee.png" width="30"/> received <span className="d-inline-block" tabindex="0" data-toggle="tooltip" title="Number of bees received"><span className="badge badge-pill badge-success" id="totalBeesReceived"></span></span>
               </p>
             </div>
