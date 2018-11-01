@@ -108,7 +108,7 @@ class Recognitions extends Component {
 
     // var recognitionsArray = [];
     var recognitionsArray = JSON.parse(localStorage.getItem('db'));
-    var datalist = ['test', 'bill', 'egor'];
+    // var datalist = ['Egor Y', 'erikhoy', 'ashley.elder', 'Jason Dang', 'Brett Goers', 'kyle.brothis', 'Shambre SW', 'MerryD'];
 
     require('./calendar.gif');
 
@@ -134,7 +134,9 @@ class Recognitions extends Component {
 
         <div className='p-2'>
           <label className='mr-2'>{label}</label>
-          <GetUser listusers={datalist} onChange={this.onChangeGetUser}/>
+          {/* <GetUser listusers={datalist} onChange={this.onChangeGetUser}/> */}
+          <GetUser onChange={this.onChangeGetUser}/>
+
         </div>
         <div className='p-2'>
           From
