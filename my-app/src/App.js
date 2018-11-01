@@ -18,17 +18,14 @@ import {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isLoggedIn: false,
-      currUser: '',
-    };
+    this.state = { isLoggedIn: false, currUser: 'erikhoy' };
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
   }
 
-  handleLogin (event, user) {
+  handleLogin (event) {
     event.preventDefault();
-    this.setState({ isLoggedIn: true, currUser: user });
+    this.setState({ isLoggedIn: true });
   }
 
   handleLogout () {
@@ -43,9 +40,9 @@ class App extends Component {
           <Navigation action={this.handleLogout} />
           <Redirect to='/UserProfilePage' />
            <Switch>
-             <Route exact path="/UserProfilePage" component={props => <UserProfilePage currUser={'Erik'} />} />
-             <Route path="/RR" component={props => <Recognitions page={'RR'} />} />
-             <Route path="/RS" component={props => <Recognitions page={'RS'} />} />
+             <Route exact path="/UserProfilePage" component={props => <UserProfilePage currUser={this.state.currUser}/>} />
+             <Route path="/RR" component={props => <Recognitions page={'RR'} username={this.state.currUser} />} />
+             <Route path="/RS" component={props => <Recognitions page={'RS'} username={this.state.currUser} />} />
            </Switch>
          </div>
 
