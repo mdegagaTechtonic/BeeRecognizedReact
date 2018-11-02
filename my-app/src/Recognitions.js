@@ -11,7 +11,6 @@ import { getAllRecognitionReceived } from './utils';
 import { getRecentRecognition } from './utils';
 import { getAllRecognitionSent } from './utils';
 
-
 class Recognitions extends Component {
   constructor(props) {
     super(props);
@@ -22,8 +21,6 @@ class Recognitions extends Component {
       endDate: new Date(),
       userSelected: '',
     };
-
-
 
     this.page = props.page;
     this.username = props.username;
@@ -49,39 +46,6 @@ class Recognitions extends Component {
     //this.setState({filteredArr: this.allRecognitionsArr}, function() {
     // });
   };
-
-  // getAllRecognitionReceived(db) {
-  //   var username = this.username;
-  //   var receivedRecognition = [];
-  //   for (var i = 0; i < db.length; i++) {
-  //     if (db[i].receiver.toLowerCase() === username.toLowerCase()) {
-  //       receivedRecognition.push(db[i]);
-  //     }
-  //   }
-  //   return receivedRecognition;
-  // }
-  //
-  // getRecentRecognition(db) {
-  //   var received = this.getAllRecognitionReceived(db);
-  //   if (received.length > 5) {
-  //     var recentFive = received.slice(0, 5);
-  //     return recentFive;
-  //   }
-  //   if (received.length <= 5) {
-  //     return received;
-  //   }
-  // };
-  //
-  // getAllRecognitionSent(db) {
-  //   var username = this.username;
-  //   var sentRecognition = [];
-  //   for (var i = 0; i < db.length; i++) {
-  //     if (db[i].sender.toLowerCase() === username.toLowerCase()) {
-  //       sentRecognition.push(db[i]);
-  //     }
-  //   }
-  //   return sentRecognition;
-  // };
 
   //save username and begin & end date to state for search
   onChangeBeginDate = beginDate => this.setState({beginDate: beginDate});

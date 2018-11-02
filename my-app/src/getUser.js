@@ -13,7 +13,7 @@ var datalist = [
 
 function SelectInput(props) {
   if (props.userPage) {
-    return <input type="text" list="br/owsers" className="form-control rounded border border-secondary" placeholder="Username" name="receiver" list='data' ref={input => props.method(input)}/>;
+    return <input type="text" list="browsers" className="form-control rounded border border-secondary" placeholder="Username" name="receiver" list='data' ref={input => props.method(input)}/>;
   } else {
     return <input className='mt-2' type='text' list='data' onChange={props.onChange} />;
   }
