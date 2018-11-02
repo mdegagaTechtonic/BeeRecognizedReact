@@ -11,6 +11,7 @@ import ShowMore from 'react-show-more';
 import GetUser from './getUser';
 import MessageConfirmation from './MessageConfirmation'
 
+let alert;
 
 class UserProfilePage extends React.Component {
   constructor(props) {
@@ -28,16 +29,21 @@ class UserProfilePage extends React.Component {
 
   handleSubmit (event) {
     //grab form info
-    let r = new Recognition(`avatars/${this.props.currUser}`, `avatars/${this._receiver.value}`, this.props.currUser, this._receiver.value, this.state.numberOfBeesToGive, new Date(Date.now()).toDateString(), this._message.value);
+    alert = MessageConfirmation(this.state.numberOfBeesToGive);
+    if(alert.props.id === 'success') {
+      let r = new Recognition(`avatars/${this.props.currUser}`, `avatars/${this._receiver.value}`, this.props.currUser, this._receiver.value, this.state.numberOfBeesToGive, new Date(Date.now()).toDateString(), this._message.value);
 
-    //grab local localStorage
-    const db = JSON.parse(localStorage.getItem('db'));
+      //grab local localStorage
+      const db = JSON.parse(localStorage.getItem('db'));
 
-    //maintains the chronological order of our db
-    db.unshift(r);
-    localStorage.setItem('db', (JSON.stringify(db)));
-    this.clearForm();
-    this.setState({ numberOfBeesToGive: --this.state.numberOfBeesToGive });
+      //maintains the chronological order of our db
+      db.unshift(r);
+      localStorage.setItem('db', (JSON.stringify(db)));
+      this.clearForm();
+      this.setState({ numberOfBeesToGive: --this.state.numberOfBeesToGive });
+  } else {
+    this.setState({ MessageAlert: true });
+  }
     event.preventDefault();
   }
 
@@ -54,7 +60,11 @@ class UserProfilePage extends React.Component {
     var recognitionsArray = JSON.parse(localStorage.getItem('db'));
     //var count = recognitionsArray.length;
     var count = 5;
-    var lastFiveRecognition = Recognitions.getRecentRecognition(recognitionsArray);
+      var lastFiveRecognition = recognitionsArray;
+    // var lastFiveRecognition = Recognitions.getRecentRecognition(recognitionsArray);
+    console.log(Recognitions.prototype);
+    console.log(Recognitions.prototype.getRecentRecognition[recognitionsArray]);
+    console.log(Recognitions.getRecentRecognition);
     console.log(lastFiveRecognition);
     this.page = 'SB';
     var user = {
@@ -94,7 +104,8 @@ class UserProfilePage extends React.Component {
               <h1>Send Recognition</h1>
               {/* <!-- success/fail message --> */}
               <div className="none" id="alert">
-                <MessageConfirmation bees={this.state.numberOfBeesToGive} />
+                {alert}
+                {/* <MessageConfirmation bees={this.state.numberOfBeesToGive} /> */}
               </div>
               {/* <!-- recognition form --> */}
               <form action="" method="" autocomplete="off" onSubmit={this.handleSubmit}>
@@ -120,6 +131,7 @@ class UserProfilePage extends React.Component {
               <div className="list-group-item list-group-item-action flex-column align-items-start">
                 <div className="d-flex w-100 justify-content-between">
                   <h3 className="mb-1">Recognition Received</h3>
+                  <Recognitions username={"erikhoy"} page="SB"/>
                 </div>
               </div>
 

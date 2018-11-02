@@ -20,6 +20,8 @@ class Recognitions extends Component {
       userSelected: '',
     };
 
+
+
     this.page = props.page;
     this.username = props.username;
     //state filteredArr will initially be set to mockdb
@@ -29,8 +31,11 @@ class Recognitions extends Component {
 
     if(props.page == 'RR') {
       this.allRecognitionsArr = this.getAllRecognitionReceived(db);
-    } else {
+    } else if (props.page == 'RS'){
       this.allRecognitionsArr = this.getAllRecognitionSent(db);
+    }
+    else {
+      this.allRecognitionsArr=this.getRecentRecognition(db);
     }
     this.displayAllRecognition();
   }
