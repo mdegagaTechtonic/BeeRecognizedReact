@@ -9,8 +9,8 @@ import BeesReceived from './Bees/BeesReceived';
 import BeesToGive from './Bees/BeesToGive';
 import ShowMore from 'react-show-more';
 import GetUser from './getUser';
-import MessageConfirmation from './MessageConfirmation'
-
+import MessageConfirmation from './MessageConfirmation';
+import MessageClear from './MessageClear'
 let alert;
 
 class UserProfilePage extends React.Component {
@@ -31,7 +31,7 @@ class UserProfilePage extends React.Component {
     //grab form info
     alert = MessageConfirmation(this.state.numberOfBeesToGive);
     if(alert.props.id === 'success') {
-      let r = new Recognition(`avatars/${this.props.currUser}`, `avatars/${this._receiver.value}`, this.props.currUser, this._receiver.value, this.state.numberOfBeesToGive, new Date(Date.now()).toDateString(), this._message.value);
+      let r = new Recognition(`avatars/${this.props.currUser}.png`, `avatars/${this._receiver.value}.png`, this.props.currUser, this._receiver.value, this.state.numberOfBeesToGive, new Date(Date.now()).toDateString(), this._message.value);
 
       //grab local localStorage
       const db = JSON.parse(localStorage.getItem('db'));
@@ -45,6 +45,8 @@ class UserProfilePage extends React.Component {
     this.setState({ MessageAlert: true });
   }
     event.preventDefault();
+    setTimeout(() => {alert = MessageClear(); this.setState({ MessageAlert: true })},3000);
+    console.log(alert);
   }
 
   clearForm () {
