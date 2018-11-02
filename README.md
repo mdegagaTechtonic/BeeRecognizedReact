@@ -25,5 +25,4 @@ RR: recognition received page
 ### NPM Packages to Install 
     follow this [article](https://medium.com/@Tunmise/set-up-eslint-with-airbnb-style-guide-in-5-minutes-d7b4cc5707f8)
     up to and including ***Using a lint script*** paragraph
-    
-    [I'm an inline-style link](https://www.google.com)
+   
