@@ -10,6 +10,7 @@ import BeesToGive from './Bees/BeesToGive';
 import ShowMore from 'react-show-more';
 import GetUser from './getUser';
 import MessageConfirmation from './MessageConfirmation';
+import MessageClear from './MessageClear';
 import { getAllRecognitionReceived } from './utils';
 import { getRecentRecognition } from './utils';
 import { getAllRecognitionSent } from './utils';
