@@ -136,13 +136,11 @@ class UserProfilePage extends React.Component {
               </div>
               <DisplayList recognitions={lastFiveRecognition} page={this.page} currUser={this.props.currUser}/>
             </nav>
-</div>
+            </div>
         </div>
       </div>
     );
   }
 }
-
-// <DisplayList recognitions={lastFiveRecognition} page={this.page} />
 
 export default UserProfilePage;
