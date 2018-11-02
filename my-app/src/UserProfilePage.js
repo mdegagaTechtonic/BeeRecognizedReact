@@ -101,8 +101,8 @@ class UserProfilePage extends React.Component {
             <div id="user-info" className="pb-5">
               <h1>User Information</h1>
               <p>
-                <img src={`images/${user.avatarReceiver}`} className="rounded mr-3" width="100px" align="left" id="avatar"/>
-                <strong id="username">{user.receiver}</strong>
+                <img src={`images/avatars/${this.props.currUser}.png`} className="rounded mr-3" width="100px" align="left" id="avatar"/>
+                <strong id="username">{this.props.currUser}</strong>
                 <br/>
                 <img src="images/bee.png" width="30"/> to give&nbsp;
                 <span className="d-inline-block mr-2" tabIndex="0" data-toggle="tooltip" title="Number of bees available to distribute">
@@ -153,7 +153,7 @@ class UserProfilePage extends React.Component {
                   <h3 className="mb-1">Recognition Received</h3>
                 </div>
               </div>
-              <DisplayList recognitions={lastFiveRecognition} page={this.page} />
+              <DisplayList recognitions={lastFiveRecognition} page={this.page} currUser={this.props.currUser}/>
             </nav>
 </div>
         </div>
