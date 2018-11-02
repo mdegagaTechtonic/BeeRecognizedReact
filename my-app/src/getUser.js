@@ -1,7 +1,7 @@
 import React from 'react';
 
 var datalist = [
-  'EgorY',
+  'Egor',
   'erikhoy',
   'ashley.elder',
   'JasonDang',
