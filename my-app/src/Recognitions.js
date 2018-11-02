@@ -107,7 +107,7 @@ class Recognitions extends Component {
       //   console.log(this.state.filteredArr);
       //   });
     } else {
-      var notFoundObj = new Recognition('', ' ', '', ' ', 0, ' ', '0 results found.');
+      var notFoundObj = new Recognition('avatars/nobody-avatar.png', 'avatars/nobody-avatar.png', '', ' ', 0, ' ', '0 results found.');
       this.setState({ filteredArr: [notFoundObj] });
     }
   };
@@ -137,7 +137,7 @@ class Recognitions extends Component {
 
     return (
       <div className='bg-white border border-dk mx-5 rounded p-3'>
-        <h1 className='heading'>{header}</h1>
+        <h1 className='heading mr-3'>{header}</h1>
         <BeesReceived bees={count} page={this.props.page}/>
         <img src="images/bee.png" width="30"/>
         <div className='d-flex flex-row flex-wrap'>
