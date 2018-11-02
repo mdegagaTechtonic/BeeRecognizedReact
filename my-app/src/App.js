@@ -53,7 +53,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-        <Route exact path="/login" render={ (props) => <Login action={this.handleLogin} /> }/>
+        <Route exact path="/" render={ (props) => <Login action={this.handleLogin} /> }/>
         <Route exact path="/logout" render={ (props) => <Logout action={this.handleLogin} /> }/>
       </div>
       </Router>
