@@ -1,13 +1,13 @@
 import React from 'react';
 
 var datalist = [
-  'Egor Y',
+  'EgorY',
   'erikhoy',
   'ashley.elder',
-  'Jason Dang',
-  'Brett Goers',
+  'JasonDang',
+  'BrettGoers',
   'kyle.brothis',
-  'Shambre SW',
+  'ShambreSW',
   'MerryD',
 ];
 
