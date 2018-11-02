@@ -9,7 +9,10 @@ import BeesReceived from './Bees/BeesReceived';
 import BeesToGive from './Bees/BeesToGive';
 import ShowMore from 'react-show-more';
 import GetUser from './getUser';
-import MessageConfirmation from './MessageConfirmation'
+import MessageConfirmation from './MessageConfirmation';
+import { getAllRecognitionReceived } from './utils';
+import { getRecentRecognition } from './utils';
+import { getAllRecognitionSent } from './utils';
 
 let alert;
 
@@ -57,14 +60,28 @@ class UserProfilePage extends React.Component {
   }
 
   render () {
+    //utilities here
+    var db = JSON.parse(localStorage.getItem('db'));
+
+    var allReceived = getAllRecognitionReceived(db, this.props.currUser);
+    console.log('all received is: ');
+    console.log(allReceived);
+
+    var lastFiveRecognition = getRecentRecognition(db, this.props.currUser);
+    console.log('last 5 is: ');
+    console.log(lastFiveRecognition);
+
+    var allSent = getAllRecognitionSent(db, this.props.currUser);
+    console.log('all sent is: ');
+    console.log(allSent);
+    //end of utilities here
+
     var recognitionsArray = JSON.parse(localStorage.getItem('db'));
     //var count = recognitionsArray.length;
     var count = 5;
       var lastFiveRecognition = recognitionsArray;
     // var lastFiveRecognition = Recognitions.getRecentRecognition(recognitionsArray);
     console.log(Recognitions.prototype);
-    console.log(Recognitions.prototype.getRecentRecognition[recognitionsArray]);
-    console.log(Recognitions.getRecentRecognition);
     console.log(lastFiveRecognition);
     this.page = 'SB';
     var user = {
