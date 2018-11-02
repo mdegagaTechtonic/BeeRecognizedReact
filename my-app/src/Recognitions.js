@@ -7,6 +7,9 @@ import BeesReceived from './Bees/BeesReceived';
 import BeesToGive from './Bees/BeesToGive';
 import ShowMore from 'react-show-more';
 import GetUser from './getUser';
+import { getAllRecognitionReceived } from './utils';
+import { getRecentRecognition } from './utils';
+import { getAllRecognitionSent } from './utils';
 
 
 class Recognitions extends Component {
@@ -30,12 +33,12 @@ class Recognitions extends Component {
 
     //state filteredArr will initially be set to received or sent recognitions depending on app page
     if(props.page == 'RR') {
-      this.allRecognitionsArr = this.getAllRecognitionReceived(db);
+      this.allRecognitionsArr = getAllRecognitionReceived(db, this.username);
     } else if (props.page == 'RS'){
-      this.allRecognitionsArr = this.getAllRecognitionSent(db);
+      this.allRecognitionsArr = getAllRecognitionSent(db, this.username);
     }
     else {
-      this.allRecognitionsArr=this.getRecentRecognition(db);
+      this.allRecognitionsArr= getRecentRecognition(db, this.username);
     }
     this.displayAllRecognition();
   }
@@ -47,38 +50,38 @@ class Recognitions extends Component {
     // });
   };
 
-  getAllRecognitionReceived(db) {
-    var username = this.username;
-    var receivedRecognition = [];
-    for (var i = 0; i < db.length; i++) {
-      if (db[i].receiver.toLowerCase() === username.toLowerCase()) {
-        receivedRecognition.push(db[i]);
-      }
-    }
-    return receivedRecognition;
-  }
-
-  getRecentRecognition(db) {
-    var received = this.getAllRecognitionReceived(db);
-    if (received.length > 5) {
-      var recentFive = received.slice(0, 5);
-      return recentFive;
-    }
-    if (received.length <= 5) {
-      return received;
-    }
-  };
-
-  getAllRecognitionSent(db) {
-    var username = this.username;
-    var sentRecognition = [];
-    for (var i = 0; i < db.length; i++) {
-      if (db[i].sender.toLowerCase() === username.toLowerCase()) {
-        sentRecognition.push(db[i]);
-      }
-    }
-    return sentRecognition;
-  };
+  // getAllRecognitionReceived(db) {
+  //   var username = this.username;
+  //   var receivedRecognition = [];
+  //   for (var i = 0; i < db.length; i++) {
+  //     if (db[i].receiver.toLowerCase() === username.toLowerCase()) {
+  //       receivedRecognition.push(db[i]);
+  //     }
+  //   }
+  //   return receivedRecognition;
+  // }
+  //
+  // getRecentRecognition(db) {
+  //   var received = this.getAllRecognitionReceived(db);
+  //   if (received.length > 5) {
+  //     var recentFive = received.slice(0, 5);
+  //     return recentFive;
+  //   }
+  //   if (received.length <= 5) {
+  //     return received;
+  //   }
+  // };
+  //
+  // getAllRecognitionSent(db) {
+  //   var username = this.username;
+  //   var sentRecognition = [];
+  //   for (var i = 0; i < db.length; i++) {
+  //     if (db[i].sender.toLowerCase() === username.toLowerCase()) {
+  //       sentRecognition.push(db[i]);
+  //     }
+  //   }
+  //   return sentRecognition;
+  // };
 
   //save username and begin & end date to state for search
   onChangeBeginDate = beginDate => this.setState({beginDate: beginDate});
