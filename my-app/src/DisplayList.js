@@ -21,7 +21,7 @@ console.log(props.page);
     );
   } else if (props.page === 'SB') {
     return (
-      props.recognitions.map((recognition) => {
+      props.recognitions.map((recognition) => { if(props.currUser === recognition.receiver) {
         return (
           <ListItem
             name={ recognition.sender }
@@ -29,7 +29,7 @@ console.log(props.page);
             date={ recognition.date }
             message={ recognition.message }
           />
-        );
+        ); }
       })
     );
   } else {

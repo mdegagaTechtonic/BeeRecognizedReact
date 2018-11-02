@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default function MessageConfirmation (numberOfBeesToGive) {
-
   if(numberOfBeesToGive > 0) {
     return (<p className="alert alert-success" role="alert" id="success">Thank you. Your recognition was sent.</p>);
   } else{
