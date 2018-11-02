@@ -15,6 +15,7 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.0.5",
     "react-show-more": "^2.0.0",
+    "react-timeout": "^1.1.2",
     "store": "^2.0.12"
   },
   "scripts": {

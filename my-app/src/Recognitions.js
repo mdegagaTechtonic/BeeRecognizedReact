@@ -24,11 +24,11 @@ class Recognitions extends Component {
 
     this.page = props.page;
     this.username = props.username;
-    //state filteredArr will initially be set to mockdb
     this.recognitionObj = new Filter();
     let db = JSON.parse(localStorage.getItem('db'));
     console.log(db);
 
+    //state filteredArr will initially be set to received or sent recognitions depending on app page
     if(props.page == 'RR') {
       this.allRecognitionsArr = this.getAllRecognitionReceived(db);
     } else if (props.page == 'RS'){
@@ -80,26 +80,25 @@ class Recognitions extends Component {
     return sentRecognition;
   };
 
+  //save username and begin & end date to state for search
   onChangeBeginDate = beginDate => this.setState({beginDate: beginDate});
   onChangeEndDate = endDate => this.setState({endDate: endDate});
   onChangeGetUser = (e) => this.setState({userSelected: e.target.value.toString()});
 
-  //this is where filter logic will happen and filteredArr state will be set
   onFilterButton = (e) => {
     this.filter('RR');
   };
 
+  //this is where filter logic will happen and filteredArr state will be set
   filter(pageFlag) {
 
     //populate datalist with usernames when slack API is finished
     //getUserNames();
 
-    //var filteredArr = this.recognitionObj.filterResults(pageFlag, this.state.userSelected, this.state.beginDate, this.state.endDate, this.allRecognitionsArr);
     var filteredArr = this.recognitionObj.filterResults(pageFlag, this.state.userSelected, this.state.beginDate, this.state.endDate, this.allRecognitionsArr);
 
     if (filteredArr.length > 0) {
       this.setState({ filteredArr: filteredArr });
-
       //because setState is async, providing a callback waits for state to be updated=
       // this.setState({filteredArr: filteredArr}, function() {
       //   console.log(this.state.filteredArr);
@@ -128,14 +127,9 @@ class Recognitions extends Component {
     if (this.props.page === 'RR') {
       header = this.username +' Recognition Received';
       label = 'Received from';
-
-      // recognitionsArray = recognitionReceivedArray;
-      //recognitionsArray = recognitionsArray.slice(0,(recognitionsArray.length/2));
     } else {
       header = this.username + ' Recognition Sent';
       label = 'Sent to';
-      // recognitionsArray = recognitionSentArray;
-      //recognitionsArray = recognitionsArray.slice((recognitionsArray.length/2), recognitionsArray.length-1);
     }
 
     return (
@@ -156,7 +150,6 @@ class Recognitions extends Component {
               onChange={this.onChangeBeginDate}
               value={this.state.beginDate}
               clearIcon={null}
-              calendarIcon={calendarIco}
             />
             To
             <DatePicker
@@ -173,7 +166,6 @@ class Recognitions extends Component {
         </div>
       </div>
 
-      //rendering of filtered recognitions by calling display component and passing down filteredArr
     );
   };
 };
