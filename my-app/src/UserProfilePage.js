@@ -63,35 +63,16 @@ class UserProfilePage extends React.Component {
   }
 
   render () {
-    //utilities here
     var db = JSON.parse(localStorage.getItem('db'));
-
     var allReceived = getAllRecognitionReceived(db, this.props.currUser);
-    console.log('all received is: ');
-    console.log(allReceived);
-
     var lastFiveRecognition = getRecentRecognition(db, this.props.currUser);
-    console.log('last 5 is: ');
-    console.log(lastFiveRecognition);
-
     var allSent = getAllRecognitionSent(db, this.props.currUser);
-    console.log('all sent is: ');
-    console.log(allSent);
-    //end of utilities here
-
-    var recognitionsArray = JSON.parse(localStorage.getItem('db'));
-    //var count = recognitionsArray.length;
-    var count = 5;
-      var lastFiveRecognition = recognitionsArray;
-    // var lastFiveRecognition = Recognitions.getRecentRecognition(recognitionsArray);
-    console.log(Recognitions.prototype);
-    console.log(lastFiveRecognition);
-    this.page = 'SB';
     var user = {
       receiver: 'erikhoy',
       avatarReceiver: 'avatars/erikhoy.png',
       numberOfBeesToGive: 4,
     };
+    this.page = 'SB';
 
     return (
       <div className="container-fluid">
@@ -114,7 +95,7 @@ class UserProfilePage extends React.Component {
                 <img src="images/bee.png" width="30"/> received&nbsp;
                 <span className="d-inline-block mr-2" tabIndex="0" data-toggle="tooltip" title="Number of bees received">
                   <span className="badge badge-pill badge-success" id="totalBeesReceived">
-                    <BeesReceived bees={count} page="UP" />
+                    <BeesReceived bees={allReceived.length} page="UP" />
                   </span>
                 </span>
               </p>
