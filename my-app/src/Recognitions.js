@@ -95,10 +95,10 @@ class Recognitions extends Component {
     let calendarIco = './calendar.gif';
     let header = '';
     if (this.props.page === 'RR') {
-      header = this.username +' Recognition Received';
+      header = this.username + "'s Recognition Received";
       label = 'Received from';
     } else {
-      header = this.username + ' Recognition Sent';
+      header = this.username + "'s Recognition Sent";
       label = 'Sent to';
     }
 
