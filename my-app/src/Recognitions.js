@@ -89,7 +89,7 @@ class Recognitions extends Component {
   onChangeGetUser = (e) => this.setState({userSelected: e.target.value.toString()});
 
   onFilterButton = (e) => {
-    this.filter('RR');
+    this.filter(this.page);
   };
 
   //this is where filter logic will happen and filteredArr state will be set
@@ -97,8 +97,11 @@ class Recognitions extends Component {
 
     //populate datalist with usernames when slack API is finished
     //getUserNames();
+    console.log(this.state.userSelected);
 
     var filteredArr = this.recognitionObj.filterResults(pageFlag, this.state.userSelected, this.state.beginDate, this.state.endDate, this.allRecognitionsArr);
+    // var filteredArr = Filter.filterResults(pageFlag, this.state.userSelected, this.state.beginDate, this.state.endDate, this.allRecognitionsArr);
+
 
     if (filteredArr.length > 0) {
       this.setState({ filteredArr: filteredArr });

@@ -22,7 +22,7 @@ function SelectInput(props) {
 export const GetUser = (props) => {
   return (
     <span>
-      <SelectInput userPage={props.userPage} method={props.method}/>
+      <SelectInput userPage={props.userPage} method={props.method} onChange={props.onChange}/>
         <datalist id='data'>
         {datalist.map((item) => <option value={item} />)}
       </datalist>
