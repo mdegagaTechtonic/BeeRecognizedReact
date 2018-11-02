@@ -131,14 +131,11 @@ class UserProfilePage extends React.Component {
               <div className="list-group-item list-group-item-action flex-column align-items-start">
                 <div className="d-flex w-100 justify-content-between">
                   <h3 className="mb-1">Recognition Received</h3>
-                  <Recognitions username={"erikhoy"} page="SB"/>
                 </div>
               </div>
-
-
-
+              <DisplayList recognitions={lastFiveRecognition} page={this.page} />
             </nav>
-          </div>
+</div>
         </div>
       </div>
     );
