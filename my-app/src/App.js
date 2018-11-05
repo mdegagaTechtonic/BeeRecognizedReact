@@ -19,7 +19,7 @@ import {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { isLoggedIn: true, currUser: 'erikhoy' };
+    this.state = { isLoggedIn: false, currUser: 'erikhoy' };
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
   }
@@ -27,14 +27,16 @@ class App extends Component {
   handleLogin (event) {
     event.preventDefault();
     this.setState({ isLoggedIn: true });
+    sessionStorage.setItem('isLoggedIn', true);
   }
 
   handleLogout () {
     this.setState({ isLoggedIn: false });
+    sessionStorage.setItem('isLoggedIn', false);
   }
 
   render() {
-    if (this.state.isLoggedIn) {
+    if (this.state.isLoggedIn || sessionStorage.getItem('isLoggedIn')) {
       return (
         <Router>
          <div>
