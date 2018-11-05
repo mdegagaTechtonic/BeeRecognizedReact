@@ -31,12 +31,13 @@ class App extends Component {
   }
 
   handleLogout () {
+    sessionStorage.clear();
     this.setState({ isLoggedIn: false });
-    sessionStorage.setItem('isLoggedIn', false);
   }
 
   render() {
     if (this.state.isLoggedIn || sessionStorage.getItem('isLoggedIn')) {
+      if(window.location.pathname === '/logout') { this.handleLogout() }; //for cases when the user manually type in the logout in the url
       return (
         <Router>
          <div>
