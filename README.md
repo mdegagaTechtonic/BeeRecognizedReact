@@ -16,10 +16,11 @@ RR: recognition received page
 
 ### NPM Packages to Install 
     sudo npm i react-date-picker
-    npm install --save react-router-dom
+    npm install react-router-dom
     npm install react
     npm i store
     npm install react-show-more
+    npm install classnames
     
 ### Airbnb Style guid and eslint installation instructions
     follow this article to set up  Airbnb Style Guide and their eslint package:
