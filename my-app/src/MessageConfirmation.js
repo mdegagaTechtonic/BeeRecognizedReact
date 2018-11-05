@@ -9,10 +9,18 @@ export default function MessageConfirmation (numberOfBeesToGive, receiver, messa
     'alert-success': true,
   };
   const sentiment = new Sentiment();
+  //overwrite AFINN wordlist values with our own weights; 
+  let options = {
+    extras: {
+      'stupid': -10,
+      'smart': 10,
+    }
+  };
 
   let text = '';
 
   let id = 'danger';
+  console.log(sentiment.analyze(message));
 
   switch(true) {
     case !receiver && !message:
@@ -27,7 +35,7 @@ export default function MessageConfirmation (numberOfBeesToGive, receiver, messa
       text = 'Please enter in a person you would like to send recognition to.';
       styles['alert-success'] = false;
       break;
-    case sentiment.analyze(message).comparative <= 0.5:
+    case sentiment.analyze(message,options).comparative <= 0.3:
       text = 'Please be nice today.';
       styles['alert-success'] = false;
       break ;
