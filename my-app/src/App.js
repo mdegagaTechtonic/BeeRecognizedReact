@@ -6,6 +6,7 @@ import Recognitions from './Recognitions';
 import Logout from './logout';
 import Login from './login';
 import Navigation from './Navigation';
+import Notfound from './PageNotFound';
 
 import {
   BrowserRouter as Router,
@@ -18,7 +19,7 @@ import {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { isLoggedIn: false, currUser: 'erikhoy' };
+    this.state = { isLoggedIn: true, currUser: 'erikhoy' };
     this.handleLogin = this.handleLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
   }
@@ -38,11 +39,11 @@ class App extends Component {
         <Router>
          <div>
           <Navigation action={this.handleLogout} />
-          <Redirect to='/UserProfilePage' />
            <Switch>
-             <Route exact path="/UserProfilePage" component={props => <UserProfilePage currUser={this.state.currUser}/>} />
-             <Route path="/RR" component={props => <Recognitions page={'RR'} username={this.state.currUser} />} />
-             <Route path="/RS" component={props => <Recognitions page={'RS'} username={this.state.currUser} />} />
+             <Route exact path="/" component={props => <UserProfilePage currUser={this.state.currUser}/>} />
+             <Route exact path="/RR" component={props => <Recognitions page={'RR'} username={this.state.currUser} />} />
+             <Route exact path="/RS" component={props => <Recognitions page={'RS'} username={this.state.currUser} />} />
+             <Route component={Notfound} />
            </Switch>
          </div>
 
@@ -53,9 +54,12 @@ class App extends Component {
     return (
       <Router>
         <div>
-        <Route exact path="/" render={ (props) => <Login action={this.handleLogin} /> }/>
-        <Route exact path="/logout" render={ (props) => <Logout action={this.handleLogin} /> }/>
-      </div>
+          <Switch>
+            <Route exact path="/" render={ (props) => <Login action={this.handleLogin} /> }/>
+            <Route exact path="/logout" component={Logout}/>
+            <Route component={Notfound} />
+          </Switch>
+        </div>
       </Router>
     );
   }

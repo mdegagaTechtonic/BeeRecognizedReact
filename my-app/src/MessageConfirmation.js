@@ -15,24 +15,24 @@ export default function MessageConfirmation (numberOfBeesToGive, receiver, messa
   let id = 'danger';
 
   switch(true) {
-    case sentiment.analyze(message).comparative <= 0.5:
-      text = 'Please be nice today.';
-      styles['alert-success'] = false;
-      break ;
-    case numberOfBeesToGive <= 0:
-      text = 'Oh no, you have no bees left to give! They are on vacation, come back later.';
-      styles['alert-success'] = false;
-      break;
     case !receiver && !message:
       text = 'Please enter in a person and message before submitting.';
+      styles['alert-success'] = false;
+      break;
+    case !message:
+      text = 'Please provide a message.';
       styles['alert-success'] = false;
       break;
     case !receiver:
       text = 'Please enter in a person you would like to send recognition to.';
       styles['alert-success'] = false;
       break;
-    case !message:
-      text = 'Please provide a message.';
+    case sentiment.analyze(message).comparative <= 0.5:
+      text = 'Please be nice today.';
+      styles['alert-success'] = false;
+      break ;
+    case numberOfBeesToGive <= 0:
+      text = 'Oh no, you have no bees left to give! They are on vacation, come back later.';
       styles['alert-success'] = false;
       break;
     default:

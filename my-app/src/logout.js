@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-
+import {
+  BrowserRouter as Router,
+  Link
+} from 'react-router-dom';
 //logout Component
 class Logout extends React.Component {
   constructor(props) {
@@ -16,7 +19,7 @@ class Logout extends React.Component {
             <img id="img" src="images/bee.png" width="50"/>
             <div class="text-center my-5">
               <p>Thank you for spreading the bees</p>
-              <a href="login.html" onClick={this.props.action}>Share more?</a>
+              <Link to="/">Share more?</Link>
             </div>
           </div>
         </div>

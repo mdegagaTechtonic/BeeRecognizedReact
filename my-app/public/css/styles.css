@@ -77,6 +77,10 @@ h1.heading {
   /* padding-bottom: 1em; */
 }
 
+span .badge {
+  font-size: 90%;
+}
+
 /* End of style rules for Recognitions Sent Page and Recognitions Received Page*/
 /* From login page */
 h1 {
