@@ -2,14 +2,14 @@ import React from 'react';
 var classNames = require( 'classnames/bind' );
 var Sentiment = require('sentiment');
 
-export default function MessageConfirmation (numberOfBeesToGive, receiver, message) {
+export default function MessageConfirmation (numberOfBeesToGive, receiver, message, currUser) {
   const styles = {
     'alert': true,
     'alert-danger': true,
     'alert-success': true,
   };
   const sentiment = new Sentiment();
-  //overwrite AFINN wordlist values with our own weights; 
+  //overwrite AFINN wordlist values with our own weights;
   let options = {
     extras: {
       'stupid': -10,
@@ -33,6 +33,10 @@ export default function MessageConfirmation (numberOfBeesToGive, receiver, messa
       break;
     case !receiver:
       text = 'Please enter in a person you would like to send recognition to.';
+      styles['alert-success'] = false;
+      break;
+    case receiver === currUser:
+      text = 'You can send yourself recognition.';
       styles['alert-success'] = false;
       break;
     case sentiment.analyze(message,options).comparative <= 0.3:

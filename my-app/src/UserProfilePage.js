@@ -33,7 +33,7 @@ class UserProfilePage extends React.Component {
 
   handleSubmit (event) {
     //grab form info
-    alert = MessageConfirmation(this.state.numberOfBeesToGive, this._receiver.value, this._message.value);
+    alert = MessageConfirmation(this.state.numberOfBeesToGive, this._receiver.value, this._message.value, this.props.currUser);
     if(alert.props.id === 'success') {
       let r = new Recognition(`avatars/${this.props.currUser}.png`, `avatars/${this._receiver.value}.png`, this.props.currUser, this._receiver.value, this.state.numberOfBeesToGive, new Date(Date.now()).toDateString(), this._message.value);
 
