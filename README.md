@@ -21,7 +21,8 @@ RR: recognition received page
     npm i store
     npm install react-show-more
     npm install classnames
-    
+    npm install sentiment
+
 ### Airbnb Style guid and eslint installation instructions
     follow this article to set up  Airbnb Style Guide and their eslint package:
     https://medium.com/@Tunmise/set-up-eslint-with-airbnb-style-guide-in-5-minutes-d7b4cc5707f8
