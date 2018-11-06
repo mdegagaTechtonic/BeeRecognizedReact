@@ -46,9 +46,9 @@ class App extends Component {
          <div>
           <Navigation action={this.handleLogout} />
            <Switch>
-             <Route exact path="/" component={props => <UserProfilePage currUser={this.state.currUser}/>} />
-             <Route exact path="/RR" component={props => <Recognitions page={'RR'} username={this.state.currUser} />} />
-             <Route exact path="/RS" component={props => <Recognitions page={'RS'} username={this.state.currUser} />} />
+             <Route exact path="/" component={props => <UserProfilePage currUser={sessionStorage.getItem('currUser')}/>} />
+             <Route exact path="/RR" component={props => <Recognitions page={'RR'} username={sessionStorage.getItem('currUser')} />} />
+             <Route exact path="/RS" component={props => <Recognitions page={'RS'} username={sessionStorage.getItem('currUser')} />} />
              <Route component={Notfound} />
            </Switch>
          </div>

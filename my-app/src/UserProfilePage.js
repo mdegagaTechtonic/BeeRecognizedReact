@@ -48,7 +48,7 @@ class UserProfilePage extends React.Component {
     this.setState({ MessageAlert: true });
   }
     event.preventDefault();
-    setTimeout(() => {alert = MessageClear(); this.setState({ MessageAlert: true })},3000);
+    setTimeout(() => {alert = MessageClear(); this.setState({ MessageAlert: false })},3000);
   }
 
   clearForm () {
