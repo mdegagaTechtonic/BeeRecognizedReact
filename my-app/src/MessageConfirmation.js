@@ -14,6 +14,8 @@ export default function MessageConfirmation (numberOfBeesToGive, receiver, messa
     extras: {
       'stupid': -10,
       'smart': 10,
+      'test': 10,
+      'hi': 10
     }
   };
 
@@ -53,5 +55,6 @@ export default function MessageConfirmation (numberOfBeesToGive, receiver, messa
       styles['alert-danger'] = false;
       break;
   }
+  console.log(styles);
   return <p className={classNames(styles)} role="alert" id={id}>{text}</p>;
 }

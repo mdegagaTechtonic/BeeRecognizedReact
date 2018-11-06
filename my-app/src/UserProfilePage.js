@@ -36,12 +36,10 @@ class UserProfilePage extends React.Component {
     alert = MessageConfirmation(this.state.numberOfBeesToGive, this._receiver.value, this._message.value, this.props.currUser);
     if(alert.props.id === 'success') {
       let r = new Recognition(`avatars/${this.props.currUser}.png`, `avatars/${this._receiver.value}.png`, this.props.currUser, this._receiver.value, this.state.numberOfBeesToGive, new Date(Date.now()).toDateString(), this._message.value);
-
       //grab local localStorage
       const db = JSON.parse(localStorage.getItem('db'));
-
-      //maintains the chronological order of our db
-      db.unshift(r);
+      //maintains the reverse chronological order of our db
+      db.push(r);
       localStorage.setItem('db', (JSON.stringify(db)));
       this.clearForm();
       this.setState({ numberOfBeesToGive: --this.state.numberOfBeesToGive });
@@ -50,7 +48,6 @@ class UserProfilePage extends React.Component {
   }
     event.preventDefault();
     setTimeout(() => {alert = MessageClear(); this.setState({ MessageAlert: true })},3000);
-    console.log(alert);
   }
 
   clearForm () {
@@ -67,11 +64,6 @@ class UserProfilePage extends React.Component {
     var allReceived = getAllRecognitionReceived(db, this.props.currUser);
     var lastFiveRecognition = getRecentRecognition(db, this.props.currUser);
     var allSent = getAllRecognitionSent(db, this.props.currUser);
-    var user = {
-      receiver: 'erikhoy',
-      avatarReceiver: 'avatars/erikhoy.png',
-      numberOfBeesToGive: 4,
-    };
     this.page = 'SB';
 
     return (

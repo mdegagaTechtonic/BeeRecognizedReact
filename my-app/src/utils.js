@@ -1,8 +1,9 @@
 export function getAllRecognitionReceived(db, username) {
   const receivedRecognition = [];
-  for (let i = 0; i < db.length; i++) {
-    if (db[i].receiver.toLowerCase() === username.toLowerCase()) {
-      receivedRecognition.push(db[i]);
+  // for (let i = 0; i < db.length; i++) {
+  for (let j = db.length-1; j >= 0; j--) {
+    if (db[j].receiver.toLowerCase() === username.toLowerCase()) {
+      receivedRecognition.push(db[j]);
     }
   }
   return receivedRecognition;
@@ -21,9 +22,10 @@ export function getRecentRecognition(db, username) {
 
 export function getAllRecognitionSent(db, username) {
   const sentRecognition = [];
-  for (let i = 0; i < db.length; i++) {
-    if (db[i].sender.toLowerCase() === username.toLowerCase()) {
-      sentRecognition.push(db[i]);
+  // for (let i = 0; i < db.length; i++) {
+  for (let j = db.length-1; j >= 0; j--) {
+    if (db[j].sender.toLowerCase() === username.toLowerCase()) {
+      sentRecognition.push(db[j]);
     }
   }
   return sentRecognition;
