@@ -11,7 +11,7 @@ import ShowMore from 'react-show-more';
 import GetUser from './getUser';
 import MessageConfirmation from './MessageConfirmation';
 import MessageClear from './MessageClear';
-import { getAllRecognitionReceived } from './utils';
+import { getAllRecognitionReceived } from './utils';//destructuring, can put these 3 into one statement 
 import { getRecentRecognition } from './utils';
 import { getAllRecognitionSent } from './utils';
 
@@ -34,7 +34,7 @@ class UserProfilePage extends React.Component {
   handleSubmit (event) {
     //grab form info
     alert = MessageConfirmation(this.state.numberOfBeesToGive, this._receiver.value, this._message.value, this.props.currUser);
-    if(alert.props.id === 'success') {
+    if(alert.props.id === 'success') {//id sent from messageConfirmation
       let r = new Recognition(`avatars/${this.props.currUser}.png`, `avatars/${this._receiver.value}.png`, this.props.currUser, this._receiver.value, this.state.numberOfBeesToGive, new Date(Date.now()).toDateString(), this._message.value);
       //grab local localStorage
       const db = JSON.parse(localStorage.getItem('db'));
@@ -42,10 +42,10 @@ class UserProfilePage extends React.Component {
       db.push(r);
       localStorage.setItem('db', (JSON.stringify(db)));
       this.clearForm();
-      this.setState({ numberOfBeesToGive: --this.state.numberOfBeesToGive });
+      this.setState({ numberOfBeesToGive: --this.state.numberOfBeesToGive });//success message displays
       localStorage.setItem('numberOfBeesToGive', this.state.numberOfBeesToGive);
   } else {
-    this.setState({ MessageAlert: true });
+    this.setState({ MessageAlert: true });//danger message displays
   }
     event.preventDefault();
     setTimeout(() => {alert = MessageClear(); this.setState({ MessageAlert: false })},3000);

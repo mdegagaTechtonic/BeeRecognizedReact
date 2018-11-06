@@ -7,9 +7,7 @@ import BeesReceived from './Bees/BeesReceived';
 import BeesToGive from './Bees/BeesToGive';
 import ShowMore from 'react-show-more';
 import GetUser from './getUser';
-import { getAllRecognitionReceived } from './utils';
-import { getRecentRecognition } from './utils';
-import { getAllRecognitionSent } from './utils';
+import { getAllRecognitionReceived, getRecentRecognition, getAllRecognitionSent } from './utils';
 
 class Recognitions extends Component {
   constructor(props) {

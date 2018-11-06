@@ -1,5 +1,3 @@
-require('store');
-
 class Recognition {
   constructor(avatarSender, avatarReceiver, sender, receiver, beesToGive, date, message) {
     this.avatarSender = avatarSender;
