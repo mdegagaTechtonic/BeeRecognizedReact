@@ -5,7 +5,7 @@ export const DisplayList = (props) => {
 console.log(props);
 console.log(props.page);
 // var this.page = props.page;
-  if (props.page === 'RR') {
+  if (props.page === 'RR' || props.page === 'SB') {
     return (
 
       props.recognitions.map((recognition) => {
@@ -19,19 +19,19 @@ console.log(props.page);
         );
       })
     );
-  } else if (props.page === 'SB') {
-    return (
-      props.recognitions.map((recognition) => { if(props.currUser === recognition.receiver) {
-        return (
-          <ListItem
-            name={ recognition.sender }
-            avatar={ recognition.avatarSender }
-            date={ recognition.date }
-            message={ recognition.message }
-          />
-        ); }
-      })
-    );
+  // } else if (props.page === 'SB') {
+  //   return (
+  //     props.recognitions.map((recognition) => { if(props.currUser === recognition.receiver) {
+  //       return (
+  //         <ListItem
+  //           name={ recognition.sender }
+  //           avatar={ recognition.avatarSender }
+  //           date={ recognition.date }
+  //           message={ recognition.message }
+  //         />
+  //       ); }
+  //     })
+  //   );
   } else {
     return (
       props.recognitions.map((recognition) => {
