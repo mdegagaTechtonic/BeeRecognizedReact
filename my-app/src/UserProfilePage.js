@@ -21,7 +21,7 @@ class UserProfilePage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      numberOfBeesToGive: 5,
+      numberOfBeesToGive: localStorage.getItem('numberOfBeesToGive'),
       MessageAlert: false,
       numberOfBeesReceived: '10',
     };
@@ -43,6 +43,7 @@ class UserProfilePage extends React.Component {
       localStorage.setItem('db', (JSON.stringify(db)));
       this.clearForm();
       this.setState({ numberOfBeesToGive: --this.state.numberOfBeesToGive });
+      localStorage.setItem('numberOfBeesToGive', this.state.numberOfBeesToGive);
   } else {
     this.setState({ MessageAlert: true });
   }

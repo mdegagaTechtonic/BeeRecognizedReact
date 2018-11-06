@@ -28,6 +28,9 @@ class App extends Component {
     event.preventDefault();
     this.setState({ isLoggedIn: true });
     sessionStorage.setItem('isLoggedIn', true);
+    sessionStorage.setItem('currUser', this.state.currUser);
+    localStorage.getItem('numberOfBeesToGive') ? console.log('Storage was already set') : localStorage.setItem('numberOfBeesToGive', 5);
+
   }
 
   handleLogout () {
@@ -36,7 +39,7 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.isLoggedIn || sessionStorage.getItem('isLoggedIn')) {
+    if (sessionStorage.getItem('isLoggedIn')) {
       if(window.location.pathname === '/logout') { this.handleLogout() }; //for cases when the user manually type in the logout in the url
       return (
         <Router>
