@@ -10,13 +10,7 @@ class login extends React.Component {
           <div className="img text-center">
             <img id="img" src="images/bee.png" width="50"/>
             <div className="text-center my-5">
-              <a href="">
-                <img
-                  onClick={this.props.action}
-                  src="https://platform.slack-edge.com/img/sign_in_with_slack.png"
-                  srcSet="https://platform.slack-edge.com/img/sign_in_with_slack.png 1x, https://platform.slack-edge.com/img/sign_in_with_slack@2x.png 2x"
-                  id ="slack"/>
-              </a>
+              <a href="https://slack.com/oauth/authorize?scope=identity.basic,identity.email,identity.avatar&client_id=140972670802.437996622916"><img alt="Sign in with Slack" height="40" width="172" src="https://platform.slack-edge.com/img/sign_in_with_slack.png" srcset="https://platform.slack-edge.com/img/sign_in_with_slack.png 1x, https://platform.slack-edge.com/img/sign_in_with_slack@2x.png 2x" /></a>
             </div>
             <div id="link" className="text-center mt-0">
               <a href="https://slack.com">If you don't have a Slack account, click here.</a>
