@@ -4,6 +4,9 @@
   "private": true,
   "lint": "./node_modules/.bin/eslint",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "classnames": "^2.2.6",
     "express": "^4.16.4",
     "form-serialize": "^0.7.2",
