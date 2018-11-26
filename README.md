@@ -27,6 +27,8 @@ RR: recognition received page
     npm install nodemon
     npm install mongoose
     npm install express
+    npm install dotenv
+    npm install @slack/client
 
 ### Email credentials:
     email: BeeRecognized2018@gmail.com
