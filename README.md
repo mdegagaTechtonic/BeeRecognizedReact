@@ -23,6 +23,10 @@ RR: recognition received page
     npm install classnames
     npm install sentiment
     npm i babel-cli babel-preset-env babel-polyfill
+    npm install body-parser
+    npm install nodemon
+    npm install mongoose
+    npm install express
 
 ### Email credentials:
     email: BeeRecognized2018@gmail.com
