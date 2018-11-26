@@ -22,6 +22,7 @@ RR: recognition received page
     npm install react-show-more
     npm install classnames
     npm install sentiment
+    npm i babel-cli babel-preset-env babel-polyfill
 
 ### Email credentials:
     email: BeeRecognized2018@gmail.com
