@@ -25,6 +25,11 @@ const UserSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: true,
+  },
+  beesToGive: {
+    type: Number,
+    trim: true,
+    required: true,
   }
 });
 
