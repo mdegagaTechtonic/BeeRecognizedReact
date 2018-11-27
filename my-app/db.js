@@ -1,3 +1,10 @@
+var mongoose = require('mongoose');
+const User = require('./client/src/models/User');
+
+
+import 'dotenv/config';
+var mongoose = require('mongoose');
+
 // Import express and request modules
 var express = require('express');
 var request = require('request');
