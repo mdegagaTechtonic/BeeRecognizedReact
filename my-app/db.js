@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-// import 'dotenv/config';
-var mongoose = require('mongoose');
-const User = require('./client/src/models/User');
-
-//
-//
-// mongoose.connect(process.env.db_connection_string);
-=======
-import 'dotenv/config';
-var mongoose = require('mongoose');
-
-
-mongoose.connect(process.env.db_connection_string);
-
-
->>>>>>> d0228dac79c4e9715d11ae9bf8039cea1a3d4f37
 // Import express and request modules
 var express = require('express');
 var request = require('request');
