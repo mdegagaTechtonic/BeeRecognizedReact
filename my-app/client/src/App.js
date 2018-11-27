@@ -54,13 +54,14 @@ class App extends Component {
       // const response = await fetch('/auth');
       console.log(window.location.pathname);
       const code = window.location.pathname;
-      const response = await fetch('/auth/redirect/')
+      const response = await fetch('/auth')
 
       const body = await response.json();
 
       if (response.status !== 200) {
         throw Error(body.message)
       }
+      console.log(body);
       return body;
     };
 
