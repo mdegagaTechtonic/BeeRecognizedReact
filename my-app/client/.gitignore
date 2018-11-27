@@ -2,7 +2,8 @@
 
 # dependencies
 /node_modules
-development.json*
+/.pnp
+.pnp.js
 
 # testing
 /coverage
@@ -12,7 +13,6 @@ development.json*
 
 # misc
 .DS_Store
-.env
 .env.local
 .env.development.local
 .env.test.local
